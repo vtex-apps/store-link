@@ -1,58 +1,66 @@
-# VTEX React App Template
+# VTEX Store Link
 
-Our guide repository to structure for react apps, that should be used as a template.
+This repository provides some blocks that can help you creating links in a store.
 
-We use `yarn` as our default package manager, before coding make sure to run yarn on: `root` and `react` folders.
+![image](https://user-images.githubusercontent.com/8517023/73387868-f1b36f80-42af-11ea-8e24-3045d2c819b4.png)
 
-## Some features:
+## Configuration
 
-### Tests
+1. Add `store-link` app to your theme's dependencies in the `manifest.json`, for example:
 
-For testing we use `@vtex/test-tools`, our own testing framework based on `react-testing-library`, the tests should be located on the `react/__tests__` folder. For references, visit our [repository](https://github.com/vtex/test-tools).
-
-### Hooks
-
-Husky hooks tha runs on every `pre-commit` and `pre-push`.
-
-### Intl Equalizer
-
-Tool for equalizing the messages located on the `messages` folder/builder. It's configured to use the **en.json** as the default file for comparison. For references, visit our [repository](https://github.com/vtex/intl-equalizer).
-
-### Lint + Formatting
-
-TS lint configured with Prettier and .Config.
-
-### Available Scripts
-
-```json
+```jsonc
 {
-  "lint": "cd ./react && yarn lint",
-  "test": "cd ./react && yarn test",
-  "lint:locales": "intl-equalizer",
-  "locales:fix": "intl-equalizer --fix",
-  "verify": "yarn lint && yarn lint:locales && yarn test"
+  "vtex.store-link": "0.x"
 }
 ```
 
-### Ci
+2. Now you can use the blocks exported by the app. In the following example you can see the usage of the `link.product` inside of a quick view component:
 
-#### Install:
-
-```yml
-install:
-  commands:
-    - echo Installing Packages...
-    - cd react
-    - npm install
-    - echo Packages installed!
+```jsonc
+{
+  "link.product#product-page": {
+    "props": {
+      "href": "/{slug}/p",
+      "label": "Mais detalhes >"
+    }
+  },
+  "product-summary.shelf": {
+    "children": [
+      "product-summary-image",
+      "product-summary-name",
+      "product-rating-inline",
+      "product-summary-space",
+      "product-summary-price",
+      "link.product#product-page
+    ]
+  },
+}
 ```
 
-#### Pre-build:
+You can see that there is a `{slug}` placeholder being passed to the `href` prop. When rendered, the placeholder will be replaced with the respective value of the closest product context and generate a link like `/everyday-necessaire/p`. However, keep in mind that in order for this work, you have to place the `link.product` block inside of a another block that provides a product context, such as the [`ProductSummary`](https://vtex.io/docs/components/product/vtex.product-summary).
 
-```yml
-pre_build:
-  commands:
-    - echo Running tests...
-    - npm run verify
-    - echo Lint and tests finished!
-```
+### link.product
+
+#### Props
+
+| Prop name | Type     | Description                             | Default value |
+| --------- | -------- | --------------------------------------- | ------------- |
+| `label`   | `string` | The label that you be shown to the user | `undefined`   |
+| `href`    | `string` | The actual link                         | `'#'`         |
+
+#### Available variables
+
+| Value          | Description                                                                                    |
+| -------------- | ---------------------------------------------------------------------------------------------- |
+| `'slug'`       | The slug of the product                                                                        |
+| `'skuId'`      | The id of the current sku                                                                      |
+| `'department'` | The department of the product                                                                  |
+| `'category1'`  | The most general category of the product, the last available category is the most specific one |
+| `'category2'`  | The second most general category                                                               |
+| `'category3'`  | -                                                                                              |
+| `'category4'`  | -                                                                                              |
+| `'productId'`  | The id of the product                                                                          |
+| `'brand'`      | Brand name                                                                                     |
+| `'brandId'`    | Brand id                                                                                       |
+
+With these variables you can form any url that you want, you can do something like `/{department}` and create a link to go to the department of the product

@@ -1,0 +1,8 @@
+{
+  "link": {
+    "component": "StoreLink"
+  },
+  "link.product": {
+    "component": "ProductLink"
+  }
+}
