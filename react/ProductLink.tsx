@@ -16,7 +16,7 @@ interface Props {
 
 const CSS_HANDLES = ['container', 'link'] as const
 
-export default function StoreLink(props: Props) {
+export default function ProductLink(props: Props) {
   const { label, href } = props
   const productContext = useProduct()
   const handles = useCssHandles(CSS_HANDLES)
@@ -38,7 +38,7 @@ export default function StoreLink(props: Props) {
   }
 
   useEffect(() => {
-    // if the link is in a modal it should replace the url instead of just push a new one
+    // if the link is in a modal it should replace the url instead of just pushing a new one
     setShouldReplaceUrl(Boolean(modalDispatch))
   }, [modalDispatch])
 

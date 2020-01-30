@@ -39,16 +39,18 @@ This repository provides some blocks that can help you creating links in a store
 
 You can see that there is a `{slug}` placeholder being passed to the `href` prop. When rendered, the placeholder will be replaced with the respective value of the closest product context and generate a link like `/everyday-necessaire/p`. However, keep in mind that in order for this work, you have to place the `link.product` block inside of a another block that provides a product context, such as the [`ProductSummary`](https://vtex.io/docs/components/product/vtex.product-summary).
 
-### link.product
+### Props
 
-#### Props
+The `link.product` and `link` blocks has the same props.
 
 | Prop name | Type     | Description                             | Default value |
 | --------- | -------- | --------------------------------------- | ------------- |
 | `label`   | `string` | The label that you be shown to the user | `undefined`   |
 | `href`    | `string` | The actual link                         | `'#'`         |
 
-#### Available variables
+### Available variables
+
+#### link.product
 
 | Value          | Description                                                                                    |
 | -------------- | ---------------------------------------------------------------------------------------------- |
