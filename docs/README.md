@@ -1,4 +1,4 @@
-# VTEX Store Link
+# Store Link
 
 This repository provides some blocks that can help you creating links in a store.
 
@@ -14,14 +14,21 @@ This repository provides some blocks that can help you creating links in a store
 }
 ```
 
-2. Now you can use the blocks exported by the app. In the following example you can see the usage of the `link.product` inside of a quick view component:
+Now, you are able to use all blocks exported by the `store-link` app. Check out the full list below:
+
+| Block name     | Description                                     |
+| -------------- | ----------------------------------------------- |
+| `link.product` | A link that consumes the product context.       |
+| `link`         | A normal link that doesn't consume any context. |
+
+2. Based on the exported list, choose the desired block and declare it in the block that will host the link. Find below an example of a link.product being used in the [product-summary](https://vtex.io/docs/components/product/vtex.product-summary) block:
 
 ```jsonc
 {
   "link.product#product-page": {
     "props": {
       "href": "/{slug}/p",
-      "label": "Mais detalhes >"
+      "label": "More details >"
     }
   },
   "product-summary.shelf": {
@@ -37,32 +44,40 @@ This repository provides some blocks that can help you creating links in a store
 }
 ```
 
-You can see that there is a `{slug}` placeholder being passed to the `href` prop. When rendered, the placeholder will be replaced with the respective value of the closest product context and generate a link like `/everyday-necessaire/p`. However, keep in mind that in order for this work, you have to place the `link.product` block inside of a another block that provides a product context, such as the [`ProductSummary`](https://vtex.io/docs/components/product/vtex.product-summary).
+A more complex example with `modal-layout` blocks can be found in the [Quick View](https://github.com/vtex-apps/modal-layout/blob/master/docs/README.md#modal-layout) example at the `modal-layout` documentation.
 
-### Props
+:warning: Note that there is a `{slug}` **placeholder** being passed onto the `href` prop in the example above. When rendered, this placeholder will be overwritten by the value accrued from the closest product context, generating a link like `/everyday-necessaire/p`. Therefore, remember that in order for this format to work you have to place the `link.product` block inside of a another block that provides a product context, such as the [`ProductSummary`](https://vtex.io/docs/components/product/vtex.product-summary).
 
-The `link.product` and `link` blocks has the same props.
+## Props
 
-| Prop name | Type     | Description                             | Default value |
-| --------- | -------- | --------------------------------------- | ------------- |
-| `label`   | `string` | The label that you be shown to the user | `undefined`   |
-| `href`    | `string` | The actual link                         | `'#'`         |
+All blocks exported by `store-link` share the same props:
 
-### Available variables
+| Prop name | Type     | Description | Default value |
+| --------- | -------- | ----------- | ------------- |
+| `label`   | `string` | Link text   | `undefined`   |
+| `href`    | `string` | Link URL    | `'#'`         |
 
-#### link.product
+When creating a Link URL for your `link.product` block, use the variables listed below. With them, you will be able to structure any desired URL for your store, such as a link to a given product department (`/{department}`).
 
-| Value          | Description                                                                                    |
-| -------------- | ---------------------------------------------------------------------------------------------- |
-| `'slug'`       | The slug of the product                                                                        |
-| `'skuId'`      | The id of the current sku                                                                      |
-| `'department'` | The department of the product                                                                  |
-| `'category1'`  | The most general category of the product, the last available category is the most specific one |
-| `'category2'`  | The second most general category                                                               |
-| `'category3'`  | -                                                                                              |
-| `'category4'`  | -                                                                                              |
-| `'productId'`  | The id of the product                                                                          |
-| `'brand'`      | Brand name                                                                                     |
-| `'brandId'`    | Brand id                                                                                       |
+| Value value    | Description                                   |
+| -------------- | --------------------------------------------- |
+| `'slug'`       | The link text used to create the product link |
+| `'skuId'`      | Current selected SKU ID                       |
+| `'department'` | Product department                            |
+| `'category1'`  | Height level category in the category tree    |
+| `'category2'`  | Second highest level category                 |
+| `'category3'`  | Third hieghest level category                 |
+| `'category4'`  | Fourth highest level category                 |
+| `'productId'`  | Product ID                                    |
+| `'brand'`      | Name of the product brand                     |
+| `'brandId'`    | ID of the product brand                       |
 
-With these variables you can form any url that you want, you can do something like `/{department}` and create a link to go to the department of the product
+## Customization
+
+In order to apply CSS customizations in this and other blocks, follow the instructions given in the recipe on [Using CSS Handles for store customization](https://vtex.io/docs/recipes/style/using-css-handles-for-store-customization). All blocks have the same handles
+
+| CSS Handles         |
+| ------------------- |
+| `childrenContainer` |
+| `label`             |
+| `link`              |

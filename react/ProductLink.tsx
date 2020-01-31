@@ -15,7 +15,7 @@ interface Props {
   children: React.ReactNode
 }
 
-const CSS_HANDLES = ['link', 'label'] as const
+const CSS_HANDLES = ['link', 'label', 'childrenContainer'] as const
 
 export default function ProductLink(props: Props) {
   const { label, href, children } = props
