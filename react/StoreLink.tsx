@@ -6,13 +6,14 @@ import { ModalContext } from 'vtex.modal-layout'
 interface Props {
   label: string
   href: string
+  children: React.ReactNode
 }
 
 const { useModalDispatch } = ModalContext
-const CSS_HANDLES = ['container', 'link']
+const CSS_HANDLES = ['link', 'label', 'childrenContainer']
 
 export default function StoreLink(props: Props) {
-  const { label, href } = props
+  const { label, href, children } = props
   const handles = useCssHandles(CSS_HANDLES)
   const modalDispatch = useModalDispatch()
   const [shouldReplaceUrl, setShouldReplaceUrl] = useState(
@@ -24,10 +25,9 @@ export default function StoreLink(props: Props) {
   }, [modalDispatch])
 
   return (
-    <div className={`${handles.container} dib`}>
-      <Link to={href} className={handles.link} replace={shouldReplaceUrl}>
-        {label}
-      </Link>
-    </div>
+    <Link to={href} className={handles.link} replace={shouldReplaceUrl}>
+      {label && <span className={handles.label}>{label}</span>}
+      {children && <div className={handles.childrenContainer}>{children}</div>}
+    </Link>
   )
 }

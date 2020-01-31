@@ -12,12 +12,13 @@ const { useModalDispatch } = ModalContext
 interface Props {
   label: string
   href: string
+  children: React.ReactNode
 }
 
-const CSS_HANDLES = ['container', 'link'] as const
+const CSS_HANDLES = ['link', 'label'] as const
 
 export default function ProductLink(props: Props) {
-  const { label, href } = props
+  const { label, href, children } = props
   const productContext = useProduct()
   const handles = useCssHandles(CSS_HANDLES)
   const [prevHref, setPrevHref] = useState()
@@ -43,14 +44,9 @@ export default function ProductLink(props: Props) {
   }, [modalDispatch])
 
   return (
-    <div className={`${handles.container} dib`}>
-      <Link
-        to={resolvedLink}
-        className={handles.link}
-        replace={shouldReplaceUrl}
-      >
-        {label}
-      </Link>
-    </div>
+    <Link to={resolvedLink} className={handles.link} replace={shouldReplaceUrl}>
+      {label && <span className={handles.label}>{label}</span>}
+      {children && <div className={handles.childrenContainer}>{children}</div>}
+    </Link>
   )
 }
