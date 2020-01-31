@@ -1,0 +1,10 @@
+{
+  "link": {
+    "component": "StoreLink",
+    "composition": "children"
+  },
+  "link.product": {
+    "component": "ProductLink",
+    "composition": "children"
+  }
+}

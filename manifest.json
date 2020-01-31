@@ -1,15 +1,20 @@
 {
-  "vendor": "CHANGE_ME",
-  "name": "CHANGE_ME",
+  "vendor": "vtex",
+  "name": "store-link",
   "version": "0.0.0",
-  "title": "CHANGE_ME",
-  "description": "CHANGE_ME",
+  "title": "VTEX Store Link",
+  "description": "A way to create links in the store",
   "builders": {
     "react": "3.x",
     "messages": "1.x",
-    "docs": "0.x"
+    "docs": "0.x",
+    "store": "0.x"
   },
-  "dependencies": {},
+  "dependencies": {
+    "vtex.css-handles": "0.x",
+    "vtex.product-context": "0.x",
+    "vtex.modal-layout": "0.x"
+  },
   "registries": [
     "smartcheckout"
   ],
