@@ -48,8 +48,6 @@ A more complex example with `modal-layout` blocks can be found in the [Quick Vie
 
 :warning: Note that there is a `{slug}` **placeholder** being passed onto the `href` prop in the example above. When rendered, this placeholder will be overwritten by the value accrued from the closest product context, generating a link like `/everyday-necessaire/p`. Therefore, remember that in order for this format to work you have to place the `link.product` block inside of a another block that provides a product context, such as the [`ProductSummary`](https://vtex.io/docs/components/product/vtex.product-summary).
 
-## Props
-
 All blocks exported by `store-link` share the same props:
 
 | Prop name | Type     | Description | Default value |
