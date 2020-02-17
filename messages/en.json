@@ -1,5 +1,6 @@
 {
-  "admin/store-link.label.title": "Link text",
-  "admin/store-link.label.description": "Any text e.g. \"Categories\", \"About us\", etc.",
-  "admin/store-link.href.description": "The actual link e.g. \"https://www.google.com\", \"/about-us\", etc"
+  "admin/editor.link.label.title": "Link text",
+  "admin/editor.link.label.description": "Any text e.g. \"Categories\", \"About us\", etc.",
+  "admin/editor.link.href.description": "The actual link e.g. \"https://www.google.com\", \"/about-us\", etc",
+  "admin/editor.product-link.title": "Product Link"
 }

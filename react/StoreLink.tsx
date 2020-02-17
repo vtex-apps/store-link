@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'vtex.render-runtime'
+import { defineMessages } from 'react-intl'
 import { useCssHandles } from 'vtex.css-handles'
 import { ModalContext } from 'vtex.modal-layout'
 
@@ -11,6 +12,13 @@ interface Props {
   children: React.ReactNode
   target?: string
 }
+
+defineMessages({
+  labelTitle: {
+    id: 'admin/editor.link.label.title',
+    defaultMessage: '',
+  },
+})
 
 const { useModalDispatch } = ModalContext
 const CSS_HANDLES = ['link', 'label', 'childrenContainer']

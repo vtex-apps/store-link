@@ -1,8 +1,8 @@
+import React, { useState, useEffect } from 'react'
 import { Link } from 'vtex.render-runtime'
 import { useCssHandles } from 'vtex.css-handles'
 import { ModalContext } from 'vtex.modal-layout'
 import { useProduct } from 'vtex.product-context'
-import React, { useState, useEffect } from 'react'
 
 import hasChildren from './modules/hasChildren'
 import { AvailableContext } from './modules/mappings'
@@ -62,6 +62,6 @@ function ProductLink(props: Props) {
   )
 }
 
-ProductLink.schema = { title: 'Product Link' }
+ProductLink.schema = { title: 'admin/editor.product-link.title' }
 
 export default ProductLink

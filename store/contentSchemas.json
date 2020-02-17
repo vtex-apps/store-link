@@ -5,19 +5,19 @@
       "type": "object",
       "properties": {
         "label": {
-          "title": "admin/store-link.label.title",
-          "description": "admin/store-link.label.description",
+          "title": "admin/editor.link.label.title",
+          "description": "admin/editor.link.label.description",
           "$ref": "app:vtex.native-types#/definitions/text"
         },
         "href": {
           "title": "Link",
           "type": "string",
-          "description": "admin/store-link.href.description"
+          "description": "admin/editor.link.href.description"
         }
       }
     },
     "ProductLink": {
-      "title": "Product Link",
+      "title": "admin/editor.product-link.title",
       "$ref": "app:vtex.store-link#/definitions/StoreLink"
     }
   }
