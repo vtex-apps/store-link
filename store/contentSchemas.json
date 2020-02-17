@@ -1,0 +1,24 @@
+{
+  "definitions": {
+    "StoreLink": {
+      "title": "Link",
+      "type": "object",
+      "properties": {
+        "label": {
+          "title": "admin/store-link.label.title",
+          "description": "admin/store-link.label.description",
+          "$ref": "app:vtex.native-types#/definitions/text"
+        },
+        "href": {
+          "title": "Link",
+          "type": "string",
+          "description": "admin/store-link.href.description"
+        }
+      }
+    },
+    "ProductLink": {
+      "title": "Product Link",
+      "$ref": "app:vtex.store-link#/definitions/StoreLink"
+    }
+  }
+}

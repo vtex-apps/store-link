@@ -1,4 +1,5 @@
 {
-  "admin/test": "teste",
-  "store/test": "teste"
+  "admin/store-link.label.title": "Texto do link",
+  "admin/store-link.label.description": "Qualquer text ex. \"Categorias\", \"Sobre nós\", etc.",
+  "admin/store-link.href.description": "Link de fato ex. \"https://www.google.com\", \"/sobre-nos\", etc"
 }
