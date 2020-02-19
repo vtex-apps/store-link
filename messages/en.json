@@ -2,5 +2,7 @@
   "admin/editor.link.label.title": "Link text",
   "admin/editor.link.label.description": "Any text e.g. \"Categories\", \"About us\", etc.",
   "admin/editor.link.href.description": "The actual link e.g. \"https://www.google.com\", \"/about-us\", etc",
-  "admin/editor.product-link.title": "Product Link"
+  "admin/editor.product-link.title": "Product Link",
+  "admin/editor.link.target.title": "Where to open the link",
+  "admin/editor.link.target.description": "You can check the options available at: https://developer.mozilla.org/docs/Web/HTML/Element/a"
 }
