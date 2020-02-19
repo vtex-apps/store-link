@@ -1,4 +1,6 @@
 {
-  "admin/test": "teste",
-  "store/test": "teste"
+  "admin/editor.link.label.title": "Texto del link",
+  "admin/editor.link.label.description": "Cualquier mensaje de texto p. Ej. \"Categorías \", \"Acerca de nosotros \", etc.",
+  "admin/editor.link.href.description": "El Link real, p. \"https://www.google.com\", \"/about-us \", etc.",
+  "admin/editor.product-link.title": "Link de producto"
 }

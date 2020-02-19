@@ -1,9 +1,10 @@
+import React, { useState, useEffect } from 'react'
 import { Link } from 'vtex.render-runtime'
 import { useCssHandles } from 'vtex.css-handles'
 import { ModalContext } from 'vtex.modal-layout'
 import { useProduct } from 'vtex.product-context'
-import React, { useState, useEffect } from 'react'
 
+import hasChildren from './modules/hasChildren'
 import { AvailableContext } from './modules/mappings'
 import interpolateLink from './modules/interpolateLink'
 
@@ -13,12 +14,13 @@ interface Props {
   label: string
   href: string
   children: React.ReactNode
+  target?: string
 }
 
 const CSS_HANDLES = ['link', 'label', 'childrenContainer'] as const
 
-export default function ProductLink(props: Props) {
-  const { label, href, children } = props
+function ProductLink(props: Props) {
+  const { label, href, children, target } = props
   const productContext = useProduct()
   const handles = useCssHandles(CSS_HANDLES)
   const [prevHref, setPrevHref] = useState()
@@ -44,9 +46,20 @@ export default function ProductLink(props: Props) {
   }, [modalDispatch])
 
   return (
-    <Link to={resolvedLink} className={handles.link} replace={shouldReplaceUrl}>
+    <Link
+      target={target}
+      to={resolvedLink}
+      className={handles.link}
+      replace={shouldReplaceUrl}
+    >
       {label && <span className={handles.label}>{label}</span>}
-      {children && <div className={handles.childrenContainer}>{children}</div>}
+      {hasChildren(children) && (
+        <div className={handles.childrenContainer}>{children}</div>
+      )}
     </Link>
   )
 }
+
+ProductLink.schema = { title: 'admin/editor.product-link.title' }
+
+export default ProductLink

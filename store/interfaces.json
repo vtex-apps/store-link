@@ -1,10 +1,16 @@
 {
   "link": {
     "component": "StoreLink",
-    "composition": "children"
+    "composition": "children",
+    "content": {
+      "$ref": "app:vtex.store-link#/definitions/StoreLink"
+    }
   },
   "link.product": {
     "component": "ProductLink",
-    "composition": "children"
+    "composition": "children",
+    "content": {
+      "$ref": "app:vtex.store-link#/definitions/ProductLink"
+    }
   }
 }

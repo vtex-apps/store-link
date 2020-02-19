@@ -50,25 +50,26 @@ A more complex example with `modal-layout` blocks can be found in the [Quick Vie
 
 All blocks exported by `store-link` share the same props:
 
-| Prop name | Type     | Description | Default value |
-| --------- | -------- | ----------- | ------------- |
-| `label`   | `string` | Link text   | `undefined`   |
-| `href`    | `string` | Link URL    | `'#'`         |
+| Prop name | Type     | Description                                                                                                                             | Default value |
+| --------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------- | ------------- |
+| `label`   | `string` | Link text                                                                                                                               | `undefined`   |
+| `href`    | `string` | Link URL                                                                                                                                | `'#'`         |
+| `target`  | `string` | This prop works the same way as the target of the [anchor element of html](https://developer.mozilla.org/pt-BR/docs/Web/HTML/Element/a) | `undefined`   |
 
 When creating a Link URL for your `link.product` block, use the variables listed below. With them, you will be able to structure any desired URL for your store, such as a link to a given product department (`/{department}`).
 
 | Value value    | Description                                   |
 | -------------- | --------------------------------------------- |
-| `'slug'`       | The link text used to create the product link |
-| `'skuId'`      | Current selected SKU ID                       |
-| `'department'` | Product department                            |
+| `'brand'`      | Name of the product brand                     |
+| `'brandId'`    | ID of the product brand                       |
 | `'category1'`  | Height level category in the category tree    |
 | `'category2'`  | Second highest level category                 |
 | `'category3'`  | Third hieghest level category                 |
 | `'category4'`  | Fourth highest level category                 |
+| `'department'` | Product department                            |
 | `'productId'`  | Product ID                                    |
-| `'brand'`      | Name of the product brand                     |
-| `'brandId'`    | ID of the product brand                       |
+| `'skuId'`      | Current selected SKU ID                       |
+| `'slug'`       | The link text used to create the product link |
 
 ## Customization
 
