@@ -45,15 +45,13 @@ function ProductLink(props: Props) {
     setShouldReplaceUrl(Boolean(modalDispatch))
   }, [modalDispatch])
 
-  return target && target !== '_self' ? (
-    <a target={target} href={resolvedLink} className={handles.link}>
-      {label && <span className={handles.label}>{label}</span>}
-      {hasChildren(children) && (
-        <div className={handles.childrenContainer}>{children}</div>
-      )}
-    </a>
-  ) : (
-    <Link to={resolvedLink} className={handles.link} replace={shouldReplaceUrl}>
+  return (
+    <Link
+      target={target}
+      to={resolvedLink}
+      className={handles.link}
+      replace={shouldReplaceUrl}
+    >
       {label && <span className={handles.label}>{label}</span>}
       {hasChildren(children) && (
         <div className={handles.childrenContainer}>{children}</div>

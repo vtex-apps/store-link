@@ -35,15 +35,13 @@ function StoreLink(props: Props) {
     setShouldReplaceUrl(Boolean(modalDispatch))
   }, [modalDispatch])
 
-  return target && target !== '_self' ? (
-    <a target={target} href={href} className={handles.link}>
-      {label && <span className={handles.label}>{label}</span>}
-      {hasChildren(children) && (
-        <div className={handles.childrenContainer}>{children}</div>
-      )}
-    </a>
-  ) : (
-    <Link to={href} className={handles.link} replace={shouldReplaceUrl}>
+  return (
+    <Link
+      to={href}
+      target={target}
+      className={handles.link}
+      replace={shouldReplaceUrl}
+    >
       {label && <span className={handles.label}>{label}</span>}
       {hasChildren(children) && (
         <div className={handles.childrenContainer}>{children}</div>
