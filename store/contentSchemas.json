@@ -13,6 +13,11 @@
           "title": "Link",
           "type": "string",
           "description": "admin/editor.link.href.description"
+        },
+        "target": {
+          "title": "admin/editor.link.target.title",
+          "type": "string",
+          "description": "admin/editor.link.target.description"
         }
       }
     },
