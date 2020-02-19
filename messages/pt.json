@@ -1,6 +1,6 @@
 {
   "admin/editor.link.label.title": "Texto do link",
-  "admin/editor.link.label.description": "Qualquer text ex. \"Categorias\", \"Sobre nós\", etc.",
-  "admin/editor.link.href.description": "Link de fato ex. \"https://www.google.com\", \"/sobre-nos\", etc",
+  "admin/editor.link.label.description": "Qualquer texto ex. \"Categorias\", \"Sobre nós\", etc.",
+  "admin/editor.link.href.description": "URL para o link ex. \"https://www.google.com\", \"/sobre-nos\", etc",
   "admin/editor.product-link.title": "Link de produto"
 }
