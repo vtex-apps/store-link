@@ -1,3 +1,5 @@
+📢 Use this project, [contribute](https://github.com/vtex-apps/product-summary) to it or open issues to help evolve it using [Store Discussion](https://github.com/vtex-apps/store-discussion).
+
 # Store Link
 
 The Store Link app provides blocks responsible for displaying links in other theme blocks, such as the Product Summary. 
