@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Fixed
+- Documentation typos 
+
 ## [0.3.0] - 2020-02-19
 ### Added
 - `target` prop to the schema of the components.
