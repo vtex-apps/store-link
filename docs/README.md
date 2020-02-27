@@ -1,6 +1,6 @@
 # Store Link
 
-This repository provides some blocks that can help you creating links in a store.
+The Store Link app provides blocks responsible for displaying links in other theme blocks, such as the Product Summary. 
 
 ![image](https://user-images.githubusercontent.com/8517023/73387868-f1b36f80-42af-11ea-8e24-3045d2c819b4.png)
 
@@ -21,7 +21,7 @@ Now, you are able to use all blocks exported by the `store-link` app. Check out 
 | `link.product` | A link that consumes the product context.       |
 | `link`         | A normal link that doesn't consume any context. |
 
-2. Based on the exported list, choose the desired block and declare it in the block that will host the link. Find below an example of a link.product being used in the [product-summary](https://vtex.io/docs/components/product/vtex.product-summary) block:
+2. Based on the exported list, choose the desired block and declare it in the block that will host the link. Find below an example of a `link.product` being used in the [`product-summary`](https://vtex.io/docs/components/product/vtex.product-summary) block:
 
 ```jsonc
 {
