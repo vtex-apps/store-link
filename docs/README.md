@@ -55,6 +55,41 @@ All blocks exported by `store-link` share the same props:
 | `label`   | `string` | Link text                                                                                                                               | `undefined`   |
 | `href`    | `string` | Link URL                                                                                                                                | `'#'`         |
 | `target`  | `string` | This prop works the same way as the target of the [anchor element of html](https://developer.mozilla.org/pt-BR/docs/Web/HTML/Element/a) | `undefined`   |
+| `displayMode` | `DisplayMode` | How the link should be displayed | `'anchor'` |
+| `buttonProps` | `ButtonProps` | Props to be passed if you use `displayMode` as `'button'` | `{ variant: 'primary', size: 'regular' }` |
+
+### DisplayMode
+
+| Value | Description |
+| --- | --- |
+| `'anchor'` | Display as a normal link with no styles |
+| `'button'` | Display as a button and accept the `variant` prop to change the visual of it |
+
+### ButtonProps
+| Prop name | Type | Description | Default value |
+| --- | --- | --- | --- |
+| `variant` | `Variant` | The variant to be used if `displayMode` is `'button'` | `'primary'` |
+| `size` | `Size` | Which predefined size it should use (You can access the [Styleguide documentation](https://styleguide.vtex.com/#/Components/Forms/Button) to understand better how it works). | `'regular'` |
+
+
+### Variant
+
+To understand better what means each variant it would be better to [access the documentation of our styleguide](https://styleguide.vtex.com/#/Components/Forms/Button). The following variants are the one supported by the button right now:
+
+| Possible values |
+| --- |
+| `'primary'` |
+| `'secondary'` |
+
+### Size
+
+You can [access the documentation of our styleguide](https://styleguide.vtex.com/#/Components/Forms/Button) to understand better how it works
+
+| Possible values |
+| --- |
+| `'small'` |
+| `'regular'` |
+| `'large'` |
 
 When creating a Link URL for your `link.product` block, use the variables listed below. With them, you will be able to structure any desired URL for your store, such as a link to a given product department (`/{department}`).
 

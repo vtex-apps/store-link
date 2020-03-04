@@ -1,16 +1,28 @@
 import React, { useState, useEffect } from 'react'
+import classnames from 'classnames'
 import { Link } from 'vtex.render-runtime'
 import { defineMessages } from 'react-intl'
 import { useCssHandles } from 'vtex.css-handles'
 import { ModalContext } from 'vtex.modal-layout'
 
 import hasChildren from './modules/hasChildren'
+import useButtonClasses, { Variant } from './modules/useButtonClasses'
 
-interface Props {
+type DisplayMode = 'anchor' | 'button'
+type Size = 'small' | 'regular' | 'large'
+
+export interface ButtonProps {
+  variant: Variant
+  size: Size
+}
+
+export interface Props {
   label: string
   href: string
   children: React.ReactNode
   target?: string
+  displayMode?: DisplayMode
+  buttonProps: Partial<ButtonProps>
 }
 
 defineMessages({
@@ -20,13 +32,30 @@ defineMessages({
   },
 })
 
+export const defaultButtonProps: ButtonProps = {
+  variant: 'primary',
+  size: 'regular',
+}
+
 const { useModalDispatch } = ModalContext
-const CSS_HANDLES = ['link', 'label', 'childrenContainer']
+const CSS_HANDLES = ['link', 'label', 'childrenContainer', 'buttonLink']
 
 function StoreLink(props: Props) {
-  const { label, href, children, target } = props
+  const {
+    label,
+    href,
+    target,
+    children,
+    buttonProps = defaultButtonProps,
+    displayMode = 'anchor',
+  } = props
+  const { variant, size } = {
+    ...defaultButtonProps,
+    ...buttonProps,
+  }
   const handles = useCssHandles(CSS_HANDLES)
   const modalDispatch = useModalDispatch()
+  const classes = useButtonClasses({ variant, size })
   const [shouldReplaceUrl, setShouldReplaceUrl] = useState(
     Boolean(modalDispatch)
   )
@@ -35,14 +64,22 @@ function StoreLink(props: Props) {
     setShouldReplaceUrl(Boolean(modalDispatch))
   }, [modalDispatch])
 
+  const rootClasses = classnames(handles.link, {
+    [`${handles.buttonLink} ${classes.container}`]: displayMode === 'button',
+  })
+
+  const labelClasses = classnames(handles.label, {
+    [classes.label]: displayMode === 'button',
+  })
+
   return (
     <Link
       to={href}
       target={target}
-      className={handles.link}
+      className={rootClasses}
       replace={shouldReplaceUrl}
     >
-      {label && <span className={handles.label}>{label}</span>}
+      {label && <span className={labelClasses}>{label}</span>}
       {hasChildren(children) && (
         <div className={handles.childrenContainer}>{children}</div>
       )}
