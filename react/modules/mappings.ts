@@ -48,12 +48,15 @@ export function mapProductValues(context: Record<string, any> = {}) {
 
 export enum AvailableContext {
   product = 'product',
+  queryString = 'queryString',
 }
 
 export function getMappingFn(contextType: AvailableContext) {
   switch (contextType) {
     case AvailableContext.product:
       return mapProductValues
+    case AvailableContext.queryString:
+      return (context: Record<string, string> = {}) => context
     default:
       return () => ({})
   }

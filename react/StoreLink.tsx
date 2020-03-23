@@ -7,6 +7,7 @@ import { ModalContext } from 'vtex.modal-layout'
 
 import hasChildren from './modules/hasChildren'
 import useButtonClasses, { Variant } from './modules/useButtonClasses'
+import { useInterpolatedLink } from './modules/useInterpolatedLink'
 
 type DisplayMode = 'anchor' | 'button'
 type Size = 'small' | 'regular' | 'large'
@@ -56,6 +57,8 @@ function StoreLink(props: Props) {
   const handles = useCssHandles(CSS_HANDLES)
   const modalDispatch = useModalDispatch()
   const classes = useButtonClasses({ variant, size })
+  const resolvedLink = useInterpolatedLink(href)
+
   const [shouldReplaceUrl, setShouldReplaceUrl] = useState(
     Boolean(modalDispatch)
   )
@@ -74,7 +77,7 @@ function StoreLink(props: Props) {
 
   return (
     <Link
-      to={href}
+      to={resolvedLink}
       target={target}
       className={rootClasses}
       replace={shouldReplaceUrl}
