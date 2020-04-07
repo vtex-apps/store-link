@@ -8,8 +8,8 @@ import { useProduct } from 'vtex.product-context'
 import { Props, defaultButtonProps } from './StoreLink'
 import hasChildren from './modules/hasChildren'
 import { AvailableContext } from './modules/mappings'
-import interpolateLink from './modules/interpolateLink'
 import useButtonClasses from './modules/useButtonClasses'
+import { useInterpolatedLink } from './modules/useInterpolatedLink'
 
 const { useModalDispatch } = ModalContext
 
@@ -31,8 +31,12 @@ function ProductLink(props: Props) {
   } = props
   const productContext = useProduct()
   const handles = useCssHandles(CSS_HANDLES)
-  const [prevHref, setPrevHref] = useState()
-  const [resolvedLink, setResolvedLink] = useState('#')
+  const resolvedLink = useInterpolatedLink(href, [
+    {
+      type: AvailableContext.product,
+      context: productContext,
+    },
+  ])
   const modalDispatch = useModalDispatch()
 
   const {
@@ -43,16 +47,6 @@ function ProductLink(props: Props) {
   const [shouldReplaceUrl, setShouldReplaceUrl] = useState(
     Boolean(modalDispatch)
   )
-
-  if (prevHref !== href) {
-    setPrevHref(href)
-    const newLink = interpolateLink({
-      link: href,
-      context: productContext,
-      contextType: AvailableContext.product,
-    })
-    setResolvedLink(newLink)
-  }
 
   useEffect(() => {
     // if the link is in a modal it should replace the url instead of just pushing a new one
