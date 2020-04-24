@@ -32,6 +32,7 @@ const LABEL_LARGE = 'ph7'
 function getClassesByVariant(variant: Variant, disabled: boolean) {
   let container
 
+  // eslint-disable-next-line default-case
   switch (variant) {
     case 'primary':
       container = disabled ? PRIMARY_DISABLED : PRIMARY_ENABLED
@@ -67,7 +68,7 @@ function getClassesBySize(size: ButtonProps['size']) {
 }
 
 export default function useButtonClasses(options: Options) {
-  const fn = (options: Options) => {
+  return useMemo(() => {
     const { variant = 'primary', disabled = false, size = 'regular' } = options
     const variantClasses = getClassesByVariant(variant, disabled)
     const sizeClasses = getClassesBySize(size)
@@ -82,7 +83,5 @@ export default function useButtonClasses(options: Options) {
     }
 
     return classes
-  }
-
-  return useMemo(() => fn(options), [options])
+  }, [options])
 }

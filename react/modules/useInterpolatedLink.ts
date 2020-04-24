@@ -26,7 +26,7 @@ export const useInterpolatedLink = (
       namespace: 'queryString',
       context: queryString,
     },
-    ...(extraContexts ? extraContexts : []),
+    ...(extraContexts || []),
   ]
 
   if (prevHref !== href) {
