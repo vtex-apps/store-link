@@ -1,3 +1,4 @@
+import findSpecificationLink from './findSpecification'
 import { getMappingFn, AvailableContext } from './mappings'
 
 interface Params {
@@ -12,16 +13,24 @@ export default function interpolateLink(params: Params) {
 
   const mapValues = getMappingFn(contextType)
   const variables = mapValues(context)
+
+  const specificationLink = findSpecificationLink(
+    context?.product?.specificationGroups,
+    link
+  )
   let resolvedLink = link
 
-  for (const key of Object.keys(variables)) {
+  const productVariables = specificationLink
+    ? { ...specificationLink, ...variables }
+    : { ...variables }
+
+  for (const key of Object.keys(productVariables)) {
     const regex = new RegExp(
       `{${namespace ? `${namespace}.${key}` : key}}`,
       'g'
     )
-    resolvedLink = resolvedLink.replace(regex, variables[key])
+    resolvedLink = resolvedLink.replace(regex, productVariables[key])
   }
-
   // Replace not found variables with empty string
   if (namespace) {
     const missingKeys = new RegExp(`{${namespace}.(.*)}`)
