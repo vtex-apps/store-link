@@ -1,5 +1,5 @@
 const findGroupAndSpecification = (path: string) => {
-  const regex = /^\{specificationGroups\.(.+)\.specifications\.(.+)\}/g
+  const regex = /\{specificationGroups\.(.+)\.specifications\.(.+)\}/g
   const regexResult = regex.exec(path)
   if (!regexResult) return null
   const [, groupName, specificationName] = regexResult
@@ -25,6 +25,6 @@ export default (specificationGroups: any[], link: string) => {
   const specificationValue = specificationTarget
     ? specificationTarget.values[0]
     : null
-  const key = link.slice(1, link.length - 1)
+  const key = `specificationGroups.${groupName}.specifications.${specificationName}`
   return specificationValue ? { [key]: specificationValue } : null
 }

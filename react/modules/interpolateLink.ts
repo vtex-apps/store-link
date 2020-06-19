@@ -1,4 +1,4 @@
-import findSpecificationLink from './findSpecification'
+import findSpecification from './findSpecification'
 import { getMappingFn, AvailableContext } from './mappings'
 
 interface Params {
@@ -14,14 +14,14 @@ export default function interpolateLink(params: Params) {
   const mapValues = getMappingFn(contextType)
   const variables = mapValues(context)
 
-  const specificationLink = findSpecificationLink(
+  const specification = findSpecification(
     context?.product?.specificationGroups,
     link
   )
   let resolvedLink = link
 
-  const productVariables = specificationLink
-    ? { ...specificationLink, ...variables }
+  const productVariables = specification
+    ? { ...specification, ...variables }
     : { ...variables }
 
   for (const key of Object.keys(productVariables)) {

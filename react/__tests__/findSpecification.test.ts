@@ -1,4 +1,4 @@
-import findSpecificationLink from '../modules/findSpecification'
+import findSpecification from '../modules/findSpecification'
 import { PRODUCT_VARIABLES } from '../typings/types'
 
 const mockedSpecificationGroups = [
@@ -48,9 +48,7 @@ describe('Specification Group Scenarios', () => {
       'specificationGroups.App Data.specifications.google':
         'http://www.google.com/',
     }
-    expect(findSpecificationLink(mockedSpecificationGroups, input)).toEqual(
-      output
-    )
+    expect(findSpecification(mockedSpecificationGroups, input)).toEqual(output)
   })
 
   it('Should find the link if group name starts with .', () => {
@@ -58,9 +56,7 @@ describe('Specification Group Scenarios', () => {
     const output = {
       'specificationGroups..groupTest.specifications.test': 'test',
     }
-    expect(findSpecificationLink(mockedSpecificationGroups, input)).toEqual(
-      output
-    )
+    expect(findSpecification(mockedSpecificationGroups, input)).toEqual(output)
   })
 
   it('Should find the link if specification name starts with .', () => {
@@ -69,9 +65,7 @@ describe('Specification Group Scenarios', () => {
       'specificationGroups.App Data.specifications..linkedin':
         'https://www.linkedin.com/',
     }
-    expect(findSpecificationLink(mockedSpecificationGroups, input)).toEqual(
-      output
-    )
+    expect(findSpecification(mockedSpecificationGroups, input)).toEqual(output)
   })
 
   it('Should find the link if group and specification names start with .', () => {
@@ -79,41 +73,31 @@ describe('Specification Group Scenarios', () => {
     const output = {
       'specificationGroups..groupTest.specifications..test': 'test',
     }
-    expect(findSpecificationLink(mockedSpecificationGroups, input)).toEqual(
-      output
-    )
+    expect(findSpecification(mockedSpecificationGroups, input)).toEqual(output)
   })
 
   it('Should not find the link if group name does not exist', () => {
     const input = '{specificationGroups.AppStore.specifications.google}'
     const output = null
-    expect(findSpecificationLink(mockedSpecificationGroups, input)).toEqual(
-      output
-    )
+    expect(findSpecification(mockedSpecificationGroups, input)).toEqual(output)
   })
 
   it('Should not find the link if specification name does not exist', () => {
     const input = '{specificationGroups.App Data.specifications.facebook}'
     const output = null
-    expect(findSpecificationLink(mockedSpecificationGroups, input)).toEqual(
-      output
-    )
+    expect(findSpecification(mockedSpecificationGroups, input)).toEqual(output)
   })
 
   it('Should not find the link if group does not have specifications', () => {
     const input = '{specificationGroups.Storeframework.specifications.store}'
     const output = null
-    expect(findSpecificationLink(mockedSpecificationGroups, input)).toEqual(
-      output
-    )
+    expect(findSpecification(mockedSpecificationGroups, input)).toEqual(output)
   })
 
   it('Should not find the link if specification does not have value', () => {
     const input = '{specificationGroups..groupTest.specifications.test2}'
     const output = null
-    expect(findSpecificationLink(mockedSpecificationGroups, input)).toEqual(
-      output
-    )
+    expect(findSpecification(mockedSpecificationGroups, input)).toEqual(output)
   })
 
   it('Should not find the link if url match with any product variable', () => {
@@ -121,9 +105,18 @@ describe('Specification Group Scenarios', () => {
 
     PRODUCT_VARIABLES.forEach((productVariable: string) => {
       const input = `{${productVariable}}`
-      expect(findSpecificationLink(mockedSpecificationGroups, input)).toEqual(
+      expect(findSpecification(mockedSpecificationGroups, input)).toEqual(
         output
       )
     })
+  })
+  it('Should find the link if path inside the brackets is correct', () => {
+    const input =
+      '/foobar?baz={specificationGroups.App Data.specifications.google}'
+    const output = {
+      'specificationGroups.App Data.specifications.google':
+        'http://www.google.com/',
+    }
+    expect(findSpecification(mockedSpecificationGroups, input)).toEqual(output)
   })
 })
