@@ -127,6 +127,20 @@ For the `link.product` block, you can use variables related to the product in co
 | `'skuId'`      | Current selected SKU ID                       |
 | `'slug'`       | The link text used to create the product link |
 
+You will also be able access values related to the product specifications through a specific path, for example:
+
+```jsonc
+{
+  "link.product#vtex": {
+    "props": {
+      "href": "{specificationGroups.App Data.specifications.vtex-url}",
+      "label": "VTEX"
+    }
+  }
+}
+```
+In this case, `App Data` is the specificationGroup name and `vtex-url` is the specification name.
+
 ## Customization
 
 In order to apply CSS customizations in this and other blocks, follow the instructions given in the recipe on [Using CSS Handles for store customization](https://vtex.io/docs/recipes/style/using-css-handles-for-store-customization). All blocks have the same handles
