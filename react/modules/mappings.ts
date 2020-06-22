@@ -16,9 +16,25 @@ function mapCategories(rawCategories: string[]) {
     .filter(Boolean)
 }
 
+function mapSpecifications(specificationGroups: any[]) {
+  const mappedSpecifications: Record<string, string> = {}
+  specificationGroups.forEach(
+    ({ name: groupName, specifications = [] }: any) => {
+      specifications.forEach(({ name: specificationName, values }: any) => {
+        const key = `specificationGroups.${groupName}.specifications.${specificationName}`
+        const [value] = values
+        mappedSpecifications[key] = value ?? ''
+      })
+    }
+  )
+
+  return mappedSpecifications
+}
+
 export function mapProductValues(context: Record<string, any> = {}) {
   const { product = {}, selectedItem = {} } = context
   const categories = mapCategories(product.categories)
+  const specifications = mapSpecifications(product.specificationGroups)
   const variables: Record<Partial<ProductVariable>, string | number> = {
     slug: product.linkText,
     skuId: selectedItem.itemId,
@@ -32,7 +48,7 @@ export function mapProductValues(context: Record<string, any> = {}) {
     brandId: product.brandId,
   }
 
-  const output: Record<string, string> = {}
+  const output: Record<string, string> = { ...specifications }
   for (const key of PRODUCT_VARIABLES) {
     if (variables[key]) {
       if (typeof variables[key] === 'number') {
