@@ -12,6 +12,7 @@ export default function interpolateLink(params: Params) {
 
   const mapValues = getMappingFn(contextType)
   const variables = mapValues(context)
+
   let resolvedLink = link
 
   for (const key of Object.keys(variables)) {
@@ -21,7 +22,6 @@ export default function interpolateLink(params: Params) {
     )
     resolvedLink = resolvedLink.replace(regex, variables[key])
   }
-
   // Replace not found variables with empty string
   if (namespace) {
     const missingKeys = new RegExp(`{${namespace}.(.*)}`)
