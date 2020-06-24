@@ -1,7 +1,4 @@
 📢 Use this project, [contribute](https://github.com/vtex-apps/product-summary) to it or open issues to help evolve it using [Store Discussion](https://github.com/vtex-apps/store-discussion).
-<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-0-orange.svg?style=flat-square)](#contributors-)
-<!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 # Store Link
 
@@ -112,20 +109,20 @@ Due to the context used by the `link.product` block, you can also build an URL p
 
 Using one of these variables, you will be able to structure any desired URL for your store, such as a link to a given product department (`/{department}`).
 
-To build URLs with variables related to the product specifications, you should use the following format: `{specificationGroups.|{{groupName}}|.specifications.|{{specificationName}}|}`, replacing the curly brackets according to your scenario. For example:
+To build URLs with variables related to the product specifications, you should use the following format: `{specificationGroups.groupName.specifications.specificationName}`, replacing `groupName` and `specificationName` with the specification group and the product specification names. For example:
 
 ```jsonc
 {
   "link.product#vtex": {
     "props": {
-      "href": "{specificationGroups.App Data.specifications.vtex-url}",
+      "href": "{specificationGroups.Design.specifications.Dimensions}",
       "label": "VTEX"
     }
   }
 }
 ```
 
-In the example above, `App Data` is the specification group name and `vtex-url` is the product specification name.
+In the example above, `Design` is the specification group name and `Dimensions` is the product specification name.
 
 ## Customization
 
