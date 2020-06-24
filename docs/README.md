@@ -5,6 +5,12 @@
 
 # Store Link
 
+<!-- DOCS-IGNORE:start -->
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[![All Contributors](https://img.shields.io/badge/all_contributors-0-orange.svg?style=flat-square)](#contributors-)
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
+<!-- DOCS-IGNORE:end -->
+
 The Store Link app provides blocks responsible for displaying links in other theme blocks, such as the Product Summary. 
 
 ![image](https://user-images.githubusercontent.com/8517023/73387868-f1b36f80-42af-11ea-8e24-3045d2c819b4.png)
@@ -13,9 +19,9 @@ The Store Link app provides blocks responsible for displaying links in other the
 
 1. Add `store-link` app to your theme's dependencies in the `manifest.json`, for example:
 
-```jsonc
-{
-  "vtex.store-link": "0.x"
+```diff
+  "dependencies": {
++   "vtex.store-link": "0.x"
 }
 ```
 
@@ -49,55 +55,31 @@ Now, you are able to use all blocks exported by the `store-link` app. Check out 
 }
 ```
 
-A more complex example with `modal-layout` blocks can be found in the [Quick View](https://github.com/vtex-apps/modal-layout/blob/master/docs/README.md#modal-layout) example at the `modal-layout` documentation.
+:warning: *Note that there is a `{slug}` placeholder being passed onto the `href` prop in the example above. When rendered, this placeholder will be overwritten by the value accrued from the closest product context, generating a link like `/everyday-necessaire/p`. Therefore, remember that in order for this format to work you have to place the `link.product` block inside of a another block that provides a product context, such as the [`ProductSummary`](https://vtex.io/docs/components/product/vtex.product-summary).*
 
-:warning: Note that there is a `{slug}` **placeholder** being passed onto the `href` prop in the example above. When rendered, this placeholder will be overwritten by the value accrued from the closest product context, generating a link like `/everyday-necessaire/p`. Therefore, remember that in order for this format to work you have to place the `link.product` block inside of a another block that provides a product context, such as the [`ProductSummary`](https://vtex.io/docs/components/product/vtex.product-summary).
+### Props
 
 All blocks exported by `store-link` share the same props:
 
-| Prop name | Type     | Description                                                                                                                             | Default value |
-| --------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------- | ------------- |
-| `label`   | `string` | Link text                                                                                                                               | `undefined`   |
-| `href`    | `string` | Link URL                                                                                                                                | `'#'`         |
-| `target`  | `string` | This prop works the same way as the target of the [anchor element of html](https://developer.mozilla.org/pt-BR/docs/Web/HTML/Element/a) | `undefined`   |
-| `displayMode` | `DisplayMode` | How the link should be displayed | `'anchor'` |
-| `buttonProps` | `ButtonProps` | Props to be passed if you use `displayMode` as `'button'` | `{ variant: 'primary', size: 'regular' }` |
+| Prop name | Type     | Description | Default value |
+| --------- | -------- | ------------------------------------------------- | ------------- |
+| `label`   | `string` | Link text.         | `undefined`   |
+| `href`    | `string` | Link URL.         | `#`         |
+| `target`  | `string` | Where to display the linked URL. This prop works the same way as the target from [HTML `<a>` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a) (HTML *anchor* element). | `undefined`   |
+| `displayMode` | `enum` | How the link should be displayed. Possible values are: `anchor` (displays a normal link with no styles) or `button` (displays a button that can be customized using the `buttonProps` prop.  | `anchor` |
+| `buttonProps` | `objet` | How the link button should be displayed. Use this prop only when the `displayMode` prop is set as `button`. | `{ variant: primary, size: regular }` |
 
-### DisplayMode
+- `buttonProps` object:
 
-| Value | Description |
-| --- | --- |
-| `'anchor'` | Display as a normal link with no styles |
-| `'button'` | Display as a button and accept the `variant` prop to change the visual of it |
-
-### ButtonProps
 | Prop name | Type | Description | Default value |
 | --- | --- | --- | --- |
-| `variant` | `Variant` | The variant to be used if `displayMode` is `'button'` | `'primary'` |
-| `size` | `Size` | Which predefined size it should use (You can access the [Styleguide documentation](https://styleguide.vtex.com/#/Components/Forms/Button) to understand better how it works). | `'regular'` |
+| `variant` | `enum` | Link button visual proeminence. Possible values are: `primary` or `secondary` (values are set according to the [VTEX Styleguide](https://styleguide.vtex.com/#/Components/Forms/Button)).  | `primary` |
+| `size` | `enum` | Link button size. Possible values are: `small`, `regular` or `large` (values are set according to the [VTEX Styleguide](https://styleguide.vtex.com/#/Components/Forms/Button)). | `regular` |
 
-### Variant
+## Modus Operandi
 
-To understand better what means each variant it would be better to [access the documentation of our styleguide](https://styleguide.vtex.com/#/Components/Forms/Button). The following variants are the one supported by the button right now:
+When creating an URL link using the `href` prop, you can create hypotheticals query string values, as shown in the example below:
 
-| Possible values |
-| --- |
-| `'primary'` |
-| `'secondary'` |
-
-### Size
-
-You can [access the documentation of our styleguide](https://styleguide.vtex.com/#/Components/Forms/Button) to understand better how it works
-
-| Possible values |
-| --- |
-| `'small'` |
-| `'regular'` |
-| `'large'` |
-
----
-
-When creating a Link URL you have the query string values available. Example:
 
 ```json
 {
@@ -110,24 +92,27 @@ When creating a Link URL you have the query string values available. Example:
 }
 ```
 
-If the current page have the query string `returnUrl` its value will be used, otherwise an empty string will take place.
 
-For the `link.product` block, you can use variables related to the product in context. With them, you will be able to structure any desired URL for your store, such as a link to a given product department (`/{department}`).
+According to the example above, if the current page have the query string `returnUrl` the value passed to the `href` prop will be used and the URL link will be properly built. If it does not have the `returnURL` query string, an empty string will take place.
 
-| Value value    | Description                                   |
+Due to the context used by the `link.product` block, you can also build an URL path with product variables when using the `href` prop. 
+
+| Product variable   | Description                                   |
 | -------------- | --------------------------------------------- |
-| `'brand'`      | Name of the product brand                     |
-| `'brandId'`    | ID of the product brand                       |
-| `'category1'`  | Height level category in the category tree    |
-| `'category2'`  | Second highest level category                 |
-| `'category3'`  | Third hieghest level category                 |
-| `'category4'`  | Fourth highest level category                 |
-| `'department'` | Product department                            |
-| `'productId'`  | Product ID                                    |
-| `'skuId'`      | Current selected SKU ID                       |
-| `'slug'`       | The link text used to create the product link |
+| `brand`      | Product brand name.                    |
+| `brandId`    | Product brand ID.                     |
+| `category1`  | Highest level category in the category tree.    |
+| `category2`  | Second highest level category.                 |
+| `category3`  | Third hieghest level category.                |
+| `category4`  | Fourth highest level category.                 |
+| `department` | Product department.                            |
+| `productId`  | Product ID.                                    |
+| `skuId`      | Current selected SKU ID.                       |
+| `slug`       | The link text used to create the product link. |
 
-You will also be able access values related to the product specifications through a specific path, for example:
+Using one of these variables, you will be able to structure any desired URL for your store, such as a link to a given product department (`/{department}`).
+
+To build URLs with variables related to the product specifications, you should use the following format: `{specificationGroups.|{{groupName}}|.specifications.|{{specificationName}}|}`, replacing the curly brackets according to your scenario. For example:
 
 ```jsonc
 {
@@ -139,7 +124,8 @@ You will also be able access values related to the product specifications throug
   }
 }
 ```
-In this case, `App Data` is the specificationGroup name and `vtex-url` is the specification name.
+
+In the example above, `App Data` is the specification group name and `vtex-url` is the product specification name.
 
 ## Customization
 
@@ -151,9 +137,11 @@ In order to apply CSS customizations in this and other blocks, follow the instru
 | `label`             |
 | `link`              |
 
+<!-- DOCS-IGNORE:start -->
+
 ## Contributors ✨
 
-Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+Thanks goes to these wonderful people:
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore-start -->
@@ -162,4 +150,6 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <!-- prettier-ignore-end -->
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
-This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
+This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind are welcome!
+
+<!-- DOCS-IGNORE:end -->
