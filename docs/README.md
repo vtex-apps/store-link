@@ -22,7 +22,7 @@ The Store Link app provides blocks responsible for displaying links in other the
 ```diff
   "dependencies": {
 +   "vtex.store-link": "0.x"
-}
+  }
 ```
 
 Now, you are able to use all blocks exported by the `store-link` app. Check out the full list below:
