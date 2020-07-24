@@ -17,14 +17,26 @@ export interface ButtonProps {
   size: Size
 }
 
-export interface Props {
-  label: string
+// https://stackoverflow.com/a/49725198/11274053
+type RequireOnlyOne<T, Keys extends keyof T = keyof T> = Pick<
+  T,
+  Exclude<keyof T, Keys>
+> &
+  {
+    [K in Keys]-?: Required<Pick<T, K>> &
+      Partial<Record<Exclude<Keys, K>, undefined>>
+  }[Keys]
+
+interface AllProps {
   href: string
-  children: React.ReactNode
+  label: string
   target?: string
+  children: React.ReactNode
   displayMode?: DisplayMode
-  buttonProps: Partial<ButtonProps>
+  buttonProps?: Partial<ButtonProps>
 }
+
+export type Props = RequireOnlyOne<AllProps, 'label' | 'children'>
 
 defineMessages({
   labelTitle: {

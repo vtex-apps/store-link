@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 ### Fixed
 - README.md file (fixed the Modus Operandi section).
+- Props `label` and `buttonProps` of `StoreLink`  being optional but not in typescript.
 
 ## [0.6.0] - 2020-06-23
 ### Added
