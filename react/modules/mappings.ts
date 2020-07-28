@@ -17,19 +17,21 @@ function mapCategories(rawCategories: string[]) {
 }
 
 interface SpecificationGroup {
-  name: string
-  specifications?: Array<{ name?: string; values: string[] }>
+  originalName: string
+  specifications?: Array<{ originalName?: string; values: string[] }>
 }
 
 function mapSpecifications(specificationGroups: SpecificationGroup[]) {
   const mappedSpecifications: Record<string, string> = {}
-  specificationGroups.forEach(({ name: groupName, specifications = [] }) => {
-    specifications.forEach(({ name: specificationName, values }) => {
-      const key = `specificationGroups.${groupName}.specifications.${specificationName}`
-      const [value] = values
-      mappedSpecifications[key] = value ?? ''
-    })
-  })
+  specificationGroups.forEach(
+    ({ originalName: groupName, specifications = [] }) => {
+      specifications.forEach(({ originalName: specificationName, values }) => {
+        const key = `specificationGroups.${groupName}.specifications.${specificationName}`
+        const [value] = values
+        mappedSpecifications[key] = value ?? ''
+      })
+    }
+  )
 
   return mappedSpecifications
 }
