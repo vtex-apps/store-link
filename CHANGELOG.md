@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 ### Added
 - `scrollTo` option to perform scroll after navigation.
+- `formatIOMessage` to link label.
 
 ## [0.6.2] - 2020-07-28
 ### Changed
