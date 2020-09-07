@@ -31,6 +31,7 @@ interface AllProps {
   href: string
   label: string
   target?: string
+  scrollTo?: string
   children: React.ReactNode
   displayMode?: DisplayMode
   buttonProps?: Partial<ButtonProps>
@@ -60,6 +61,7 @@ function StoreLink(props: Props) {
     target,
     children,
     buttonProps = defaultButtonProps,
+    scrollTo,
     displayMode = 'anchor',
   } = props
   const { variant, size } = {
@@ -87,12 +89,15 @@ function StoreLink(props: Props) {
     [classes.label]: displayMode === 'button',
   })
 
+  const scrollOptions = scrollTo ? { baseElementId: scrollTo } : false
+
   return (
     <Link
       to={resolvedLink}
       target={target}
       className={rootClasses}
       replace={shouldReplaceUrl}
+      scrollOptions={scrollOptions}
     >
       {label && <span className={labelClasses}>{label}</span>}
       {hasChildren(children) && (

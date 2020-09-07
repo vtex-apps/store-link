@@ -62,9 +62,10 @@ All blocks exported by `store-link` share the same props:
 | --------- | -------- | ------------------------------------------------- | ------------- |
 | `label`   | `string` | Link text.         | `undefined`   |
 | `href`    | `string` | Link URL.         | `#`         |
+| `scrollTo`    | `string` | Element anchor to scroll after natigation  | `marketing`         |
 | `target`  | `string` | Where to display the linked URL. This prop works the same way as the target from [HTML `<a>` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a) (HTML *anchor* element). | `undefined`   |
 | `displayMode` | `enum` | How the link should be displayed. Possible values are: `anchor` (displays a normal link with no styles) or `button` (displays a button that can be customized using the `buttonProps` prop.  | `anchor` |
-| `buttonProps` | `objet` | How the link button should be displayed. Use this prop only when the `displayMode` prop is set as `button`. | `{ variant: primary, size: regular }` |
+| `buttonProps` | `object` | How the link button should be displayed. Use this prop only when the `displayMode` prop is set as `button`. | `{ variant: primary, size: regular }` |
 
 - `buttonProps` object:
 
