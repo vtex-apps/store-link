@@ -8,7 +8,7 @@
     "react": "^16.8.6",
     "react-apollo": "^2.5.8",
     "react-dom": "^16.8.6",
-    "react-intl": "^3.11.0"
+    "react-intl": "2.9.0"
   },
   "devDependencies": {
     "@types/classnames": "^2.2.9",
@@ -16,7 +16,7 @@
     "@types/jest": "^25.1.0",
     "@types/node": "^13.1.8",
     "@types/react": "^16.9.19",
-    "@types/react-intl": "^3.0.0",
+    "@types/react-intl": "^2.3.18",
     "@vtex/test-tools": "^3.1.0",
     "@vtex/tsconfig": "^0.4.4",
     "typescript": "3.8.3"

@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import classnames from 'classnames'
 import { Link } from 'vtex.render-runtime'
-import { defineMessages } from 'react-intl'
+import { defineMessages, injectIntl, InjectedIntlProps } from 'react-intl'
 import { useCssHandles } from 'vtex.css-handles'
 import { ModalContext } from 'vtex.modal-layout'
+import { formatIOMessage } from 'vtex.native-types'
 
 import hasChildren from './modules/hasChildren'
 import useButtonClasses, { Variant } from './modules/useButtonClasses'
@@ -27,7 +28,7 @@ type RequireOnlyOne<T, Keys extends keyof T = keyof T> = Pick<
       Partial<Record<Exclude<Keys, K>, undefined>>
   }[Keys]
 
-interface AllProps {
+interface AllProps extends InjectedIntlProps {
   href: string
   label: string
   target?: string
@@ -62,6 +63,7 @@ function StoreLink(props: Props) {
     children,
     buttonProps = defaultButtonProps,
     scrollTo,
+    intl,
     displayMode = 'anchor',
   } = props
   const { variant, size } = {
@@ -91,6 +93,8 @@ function StoreLink(props: Props) {
 
   const scrollOptions = scrollTo ? { baseElementId: scrollTo } : false
 
+  const localizedLabel = formatIOMessage({ id: label, intl })
+
   return (
     <Link
       to={resolvedLink}
@@ -99,7 +103,7 @@ function StoreLink(props: Props) {
       replace={shouldReplaceUrl}
       scrollOptions={scrollOptions}
     >
-      {label && <span className={labelClasses}>{label}</span>}
+      {label && <span className={labelClasses}>{localizedLabel}</span>}
       {hasChildren(children) && (
         <div className={handles.childrenContainer}>{children}</div>
       )}
@@ -111,4 +115,4 @@ StoreLink.schema = {
   title: 'Link',
 }
 
-export default StoreLink
+export default injectIntl(StoreLink)
