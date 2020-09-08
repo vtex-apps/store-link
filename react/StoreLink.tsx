@@ -91,7 +91,7 @@ function StoreLink(props: Props) {
     [classes.label]: displayMode === 'button',
   })
 
-  const scrollOptions = scrollTo ? { baseElementId: scrollTo } : false
+  const scrollOptions = scrollTo ? { baseElementId: scrollTo } : undefined
 
   const localizedLabel = formatIOMessage({ id: label, intl })
 
