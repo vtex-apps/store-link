@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import classnames from 'classnames'
 import { Link } from 'vtex.render-runtime'
-import { defineMessages, injectIntl, InjectedIntlProps } from 'react-intl'
+import { defineMessages, useIntl } from 'react-intl'
 import { useCssHandles } from 'vtex.css-handles'
 import { ModalContext } from 'vtex.modal-layout'
 import { formatIOMessage } from 'vtex.native-types'
@@ -28,7 +28,7 @@ type RequireOnlyOne<T, Keys extends keyof T = keyof T> = Pick<
       Partial<Record<Exclude<Keys, K>, undefined>>
   }[Keys]
 
-interface AllProps extends InjectedIntlProps {
+interface AllProps {
   href: string
   label: string
   target?: string
@@ -63,13 +63,13 @@ function StoreLink(props: Props) {
     children,
     buttonProps = defaultButtonProps,
     scrollTo,
-    intl,
     displayMode = 'anchor',
   } = props
   const { variant, size } = {
     ...defaultButtonProps,
     ...buttonProps,
   }
+  const intl = useIntl()
   const handles = useCssHandles(CSS_HANDLES)
   const modalDispatch = useModalDispatch()
   const classes = useButtonClasses({ variant, size })
@@ -115,4 +115,4 @@ StoreLink.schema = {
   title: 'Link',
 }
 
-export default injectIntl(StoreLink)
+export default StoreLink
