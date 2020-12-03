@@ -1,3 +1,5 @@
+import { searchSlugify } from '@vtex/slugify'
+
 import { PRODUCT_VARIABLES, ProductVariable } from '../typings/types'
 
 function mapCategories(rawCategories: string[]) {
@@ -49,7 +51,7 @@ export function mapProductValues(context: Record<string, any> = {}) {
     category3: categories[3],
     category4: categories[4],
     productId: product.productId,
-    brand: product.brand,
+    brand: searchSlugify(product.brand),
     brandId: product.brandId,
   }
 

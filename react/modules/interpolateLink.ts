@@ -20,6 +20,8 @@ export default function interpolateLink(params: Params) {
       `{${namespace ? `${namespace}.${key}` : key}}`,
       'g'
     )
+
+    // we slugify the context value so we don't end up with invalid characters on the URL
     resolvedLink = resolvedLink.replace(regex, variables[key])
   }
   // Replace not found variables with empty string
