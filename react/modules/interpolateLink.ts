@@ -1,5 +1,3 @@
-import { searchSlugify } from '@vtex/slugify'
-
 import { getMappingFn, AvailableContext } from './mappings'
 
 interface Params {
@@ -24,7 +22,7 @@ export default function interpolateLink(params: Params) {
     )
 
     // we slugify the context value so we don't end up with invalid characters on the URL
-    resolvedLink = resolvedLink.replace(regex, searchSlugify(variables[key]))
+    resolvedLink = resolvedLink.replace(regex, variables[key])
   }
   // Replace not found variables with empty string
   if (namespace) {

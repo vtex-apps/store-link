@@ -6,7 +6,7 @@ import ProductLink from '../ProductLink'
 
 const mockedUseProduct = useProduct as jest.Mock
 
-function mockProduct({ brand, specificationGroups }: any) {
+function mockProduct({ brand, specificationGroups = [] }: any) {
   mockedUseProduct.mockImplementation(() => {
     return {
       selectedItem: { itemId: 'itemId' },
@@ -22,36 +22,15 @@ function mockProduct({ brand, specificationGroups }: any) {
   })
 }
 
-test('slugifies interpolated values', () => {
+test('slugifies interpolated brand name', () => {
   mockProduct({
     brand: 'brand name with lots of spaces',
-    specificationGroups: [
-      {
-        originalName: 'specGroup1',
-        specifications: [
-          {
-            originalName: 'spec1',
-            values: ['Some spec properties with lots of spaces'],
-          },
-        ],
-      },
-    ],
   })
 
   render(<ProductLink href="/custom-link-{brand}" label="See brand" />)
-  render(
-    <ProductLink
-      href="/{specificationGroups.specGroup1.specifications.spec1}"
-      label="See the thing"
-    />
-  )
 
   expect(screen.getByText('See brand').closest('a')).toHaveAttribute(
     'href',
     '/custom-link-brand-name-with-lots-of-spaces'
-  )
-  expect(screen.getByText('See the thing').closest('a')).toHaveAttribute(
-    'href',
-    '/some-spec-properties-with-lots-of-spaces'
   )
 })
