@@ -1376,6 +1376,11 @@
   resolved "https://registry.yarnpkg.com/@types/zen-observable/-/zen-observable-0.8.0.tgz#8b63ab7f1aa5321248aad5ac890a485656dcea4d"
   integrity sha512-te5lMAWii1uEJ4FwLjzdlbw3+n0FZNOvFXHxQDKeT0dilh7HOzdMzV2TrJVUzq8ep7J4Na8OUYPRLSQkJHAlrg==
 
+"@vtex/slugify@^1.0.3":
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/@vtex/slugify/-/slugify-1.0.3.tgz#5c79e81d104b51f126eafe53bb4a81c432c26f82"
+  integrity sha512-BOCQ3ruSEhb8OQCeYZlji/F0n9N3F0VB1i1uY+AVP8+UHU48USS/E679jrUzgVyCpBaKgN9WWGSji28WKPeMfg==
+
 "@vtex/test-tools@^3.1.0":
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/@vtex/test-tools/-/test-tools-3.1.0.tgz#05d9d2574a57c791b342d0156ac52fccb8843729"
@@ -4664,7 +4669,12 @@ type-check@~0.3.2:
   dependencies:
     prelude-ls "~1.1.2"
 
-typescript@3.8.3, typescript@^3.7.3:
+typescript@3.9.7:
+  version "3.9.7"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.9.7.tgz#98d600a5ebdc38f40cb277522f12dc800e9e25fa"
+  integrity sha512-BLbiRkiBzAwsjut4x/dsibSTB6yWpwT5qWmC2OfuCg3GgVQCSgMs4vEctYPhsaGtd0AeuuHMkjZ2h2WG8MSzRw==
+
+typescript@^3.7.3:
   version "3.8.3"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.8.3.tgz#409eb8544ea0335711205869ec458ab109ee1061"
   integrity sha512-MYlEfn5VrLNsgudQTVJeNaQFUAI7DkhnOjdpAp4T+ku1TfQClewlbSuTVHiA+8skNBgaf02TL/kLOvig4y3G8w==
