@@ -3,6 +3,10 @@
     "StoreLink": {
       "title": "Link",
       "type": "object",
+      "required": [
+        "href",
+        "label"
+      ],
       "properties": {
         "label": {
           "title": "admin/editor.link.label.title",
