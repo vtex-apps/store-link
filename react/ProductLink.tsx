@@ -14,6 +14,7 @@ import { useInterpolatedLink } from './modules/useInterpolatedLink'
 const { useModalDispatch } = ModalContext
 
 const CSS_HANDLES = [
+  'linkContainer',
   'link',
   'label',
   'childrenContainer',
