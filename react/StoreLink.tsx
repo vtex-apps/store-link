@@ -53,7 +53,7 @@ export const defaultButtonProps: ButtonProps = {
 }
 
 const { useModalDispatch } = ModalContext
-const CSS_HANDLES = ['link', 'label', 'childrenContainer', 'buttonLink']
+const CSS_HANDLES = ['linkContainer','link', 'label', 'childrenContainer', 'buttonLink']
 
 function StoreLink(props: Props) {
   const {
@@ -95,19 +95,27 @@ function StoreLink(props: Props) {
 
   const localizedLabel = formatIOMessage({ id: label, intl })
 
+  const handlePrevent = (e: React.MouseEvent) =>{
+    e.stopPropagation()
+    e.nativeEvent.stopImmediatePropagation()
+  }
+
   return (
+    <div onClick={handlePrevent} className={handles.linkContainer}>
     <Link
       to={resolvedLink}
       target={target}
       className={rootClasses}
       replace={shouldReplaceUrl}
       scrollOptions={scrollOptions}
+      onClick={handlePrevent}
     >
       {label && <span className={labelClasses}>{localizedLabel}</span>}
       {hasChildren(children) && (
         <div className={handles.childrenContainer}>{children}</div>
       )}
     </Link>
+    </div>
   )
 }
 
