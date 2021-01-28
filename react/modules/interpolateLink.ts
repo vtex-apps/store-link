@@ -16,8 +16,9 @@ export default function interpolateLink(params: Params) {
   let resolvedLink = link
 
   for (const key of Object.keys(variables)) {
+    const newKey = key.replace(/[-+%]/g,'')
     const regex = new RegExp(
-      `{${namespace ? `${namespace}.${key}` : key}}`,
+      `{${namespace ? `${namespace}.${newKey}` : newKey}}`,
       'g'
     )
 
