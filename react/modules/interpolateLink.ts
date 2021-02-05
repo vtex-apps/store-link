@@ -16,10 +16,11 @@ export default function interpolateLink(params: Params) {
   let resolvedLink = link
 
   for (const key of Object.keys(variables)) {
-    const newKey = key.replace(/[-+%]/g,'')
+    const newKey = key.replace(/[^\d\w.]/g,'')
     const regex = new RegExp(
       `{${namespace ? `${namespace}.${newKey}` : newKey}}`,
       'g'
+
     )
 
     // we slugify the context value so we don't end up with invalid characters on the URL
