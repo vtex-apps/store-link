@@ -65,6 +65,7 @@ function ProductLink(props: Props) {
   const handlePrevent = (e: React.MouseEvent) =>{
     e.stopPropagation()
     e.nativeEvent.stopImmediatePropagation()
+
   }
 
   return (
