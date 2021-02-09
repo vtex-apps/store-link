@@ -24,6 +24,7 @@ function ProductLink(props: Props) {
   const {
     label,
     href,
+    escapeLinkRegex,
     children,
     target,
     displayMode = 'anchor',
@@ -31,7 +32,9 @@ function ProductLink(props: Props) {
   } = props
   const productContext = useProduct()
   const handles = useCssHandles(CSS_HANDLES)
-  const resolvedLink = useInterpolatedLink(href, [
+  const resolvedLink = useInterpolatedLink(href,
+    escapeLinkRegex? new RegExp(escapeLinkRegex,"g"):undefined,
+  [
     {
       type: AvailableContext.product,
       context: productContext,

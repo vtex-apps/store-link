@@ -12,6 +12,7 @@ interface Context {
 
 export const useInterpolatedLink = (
   href: string,
+  escapeLinkRegex?: RegExp,
   extraContexts?: Context[]
 ) => {
   const [prevHref, setPrevHref] = useState<string | undefined>()
@@ -38,6 +39,7 @@ export const useInterpolatedLink = (
         namespace: contextInfo.namespace,
         context: contextInfo.context,
         contextType: contextInfo.type,
+        escapeLinkRegex : escapeLinkRegex
       })
     }, href)
 
