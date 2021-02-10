@@ -20,6 +20,7 @@
     "@types/react": "^16.9.19",
     "@vtex/test-tools": "^3.3.2",
     "@vtex/tsconfig": "^0.4.4",
+    "husky": "^5.0.9",
     "typescript": "3.9.7"
   },
   "version": "0.7.2"

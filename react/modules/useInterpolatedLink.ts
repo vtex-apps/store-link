@@ -39,7 +39,7 @@ export const useInterpolatedLink = (
         namespace: contextInfo.namespace,
         context: contextInfo.context,
         contextType: contextInfo.type,
-        escapeLinkRegex : escapeLinkRegex
+        escapeLinkRegex,
       })
     }, href)
 

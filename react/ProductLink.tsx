@@ -32,14 +32,16 @@ function ProductLink(props: Props) {
   } = props
   const productContext = useProduct()
   const handles = useCssHandles(CSS_HANDLES)
-  const resolvedLink = useInterpolatedLink(href,
-    escapeLinkRegex? new RegExp(escapeLinkRegex,"g"):undefined,
-  [
-    {
-      type: AvailableContext.product,
-      context: productContext,
-    },
-  ])
+  const resolvedLink = useInterpolatedLink(
+    href,
+    escapeLinkRegex ? new RegExp(escapeLinkRegex, 'g') : undefined,
+    [
+      {
+        type: AvailableContext.product,
+        context: productContext,
+      },
+    ]
+  )
   const modalDispatch = useModalDispatch()
 
   const {
