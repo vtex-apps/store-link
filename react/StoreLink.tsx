@@ -33,6 +33,7 @@ interface AllProps {
   label: string
   target?: string
   scrollTo?: string
+  escapeLinkRegex?: string
   children: React.ReactNode
   displayMode?: DisplayMode
   buttonProps?: Partial<ButtonProps>
