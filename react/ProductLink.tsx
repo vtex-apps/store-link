@@ -14,6 +14,7 @@ import { useInterpolatedLink } from './modules/useInterpolatedLink'
 const { useModalDispatch } = ModalContext
 
 const CSS_HANDLES = [
+  'linkContainer',
   'link',
   'label',
   'childrenContainer',
@@ -66,18 +67,27 @@ function ProductLink(props: Props) {
     [classes.label]: displayMode === 'button',
   })
 
+  const handlePrevent = (e: React.MouseEvent) =>{
+    e.stopPropagation()
+    e.nativeEvent.stopImmediatePropagation()
+
+  }
+
   return (
+    <div onClick={handlePrevent} className={handles.linkContainer}>
     <Link
       target={target}
       to={resolvedLink}
       className={rootClasses}
       replace={shouldReplaceUrl}
+      onClick={handlePrevent}
     >
       {label && <span className={labelClasses}>{label}</span>}
       {hasChildren(children) && displayMode === 'anchor' && (
         <div className={handles.childrenContainer}>{children}</div>
       )}
     </Link>
+    </div>
   )
 }
 
