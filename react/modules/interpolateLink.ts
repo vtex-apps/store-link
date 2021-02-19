@@ -1,9 +1,10 @@
 import { getMappingFn, AvailableContext } from './mappings'
+import { Context } from './useInterpolatedLink'
 
 interface Params {
   link: string
   namespace?: string
-  context?: Record<string, any>
+  context?: Context['context']
   contextType: AvailableContext
   escapeLinkRegex?: RegExp
 }
