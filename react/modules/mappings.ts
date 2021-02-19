@@ -40,7 +40,7 @@ function mapSpecifications(specificationGroups: SpecificationGroup[]) {
 }
 
 export function mapProductValues(
-  context?: Partial<ProductTypes.ProductContextState>
+  context: Partial<ProductTypes.ProductContextState> | undefined
 ) {
   const { product, selectedItem } = context ?? {}
 

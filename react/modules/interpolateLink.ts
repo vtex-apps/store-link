@@ -1,10 +1,10 @@
 import { getMappingFn, AvailableContext } from './mappings'
-import { Context } from './useInterpolatedLink'
+import type { Context } from '../typings/types'
 
 interface Params {
   link: string
   namespace?: string
-  context?: Context['context']
+  context: Context['context']
   contextType: AvailableContext
   escapeLinkRegex?: RegExp
 }

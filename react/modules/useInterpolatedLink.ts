@@ -1,16 +1,10 @@
 import { useRuntime } from 'vtex.render-runtime'
 import { useEffect, useState } from 'react'
-import type { ProductTypes } from 'vtex.product-context'
 import type { RenderContext } from 'vtex.render-runtime'
 
 import interpolateLink from './interpolateLink'
 import { AvailableContext } from './mappings'
-
-export interface Context {
-  type: AvailableContext
-  namespace?: string
-  context?: Partial<ProductTypes.ProductContextState> | Record<string, any>
-}
+import type { Context } from '../typings/types'
 
 export const useInterpolatedLink = (
   href: string,
