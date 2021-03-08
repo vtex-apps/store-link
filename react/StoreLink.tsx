@@ -29,7 +29,7 @@ type RequireOnlyOne<T, Keys extends keyof T = keyof T> = Pick<
   }[Keys]
 
 interface AllProps {
-  href: string
+  href?: string
   label: string
   target?: string
   scrollTo?: string

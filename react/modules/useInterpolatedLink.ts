@@ -7,7 +7,7 @@ import { AvailableContext } from './mappings'
 import type { Context } from '../typings/types'
 
 export const useInterpolatedLink = (
-  href: string,
+  href?: string,
   escapeLinkRegex?: RegExp,
   extraContexts?: Context[]
 ) => {
@@ -17,6 +17,10 @@ export const useInterpolatedLink = (
   } = useRuntime() as RenderContext.RenderContext
 
   useEffect(() => {
+    if (!href) {
+      return
+    }
+
     const contexts: Context[] = [
       {
         type: AvailableContext.queryString,
