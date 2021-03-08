@@ -1,37 +1,30 @@
 import { useRuntime } from 'vtex.render-runtime'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import type { RenderContext } from 'vtex.render-runtime'
 
 import interpolateLink from './interpolateLink'
 import { AvailableContext } from './mappings'
-
-interface Context {
-  type: AvailableContext
-  namespace?: string
-  context: Record<string, unknown>
-}
+import type { Context } from '../typings/types'
 
 export const useInterpolatedLink = (
   href: string,
   escapeLinkRegex?: RegExp,
   extraContexts?: Context[]
 ) => {
-  const [prevHref, setPrevHref] = useState<string | undefined>()
   const [resolvedLink, setResolvedLink] = useState('#')
   const {
     route: { queryString },
-  } = useRuntime()
+  } = useRuntime() as RenderContext.RenderContext
 
-  const contexts = [
-    {
-      type: AvailableContext.queryString,
-      namespace: 'queryString',
-      context: queryString,
-    },
-    ...(extraContexts ?? []),
-  ]
-
-  if (prevHref !== href) {
-    setPrevHref(href)
+  useEffect(() => {
+    const contexts: Context[] = [
+      {
+        type: AvailableContext.queryString,
+        namespace: 'queryString',
+        context: queryString,
+      },
+      ...(extraContexts ?? []),
+    ]
 
     const newLink = contexts.reduce((acc, contextInfo) => {
       return interpolateLink({
@@ -44,7 +37,7 @@ export const useInterpolatedLink = (
     }, href)
 
     setResolvedLink(newLink)
-  }
+  }, [href, escapeLinkRegex, extraContexts, queryString])
 
   return resolvedLink
 }

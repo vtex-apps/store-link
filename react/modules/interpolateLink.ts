@@ -1,9 +1,10 @@
 import { getMappingFn, AvailableContext } from './mappings'
+import type { Context } from '../typings/types'
 
 interface Params {
   link: string
   namespace?: string
-  context?: Record<string, any>
+  context: Context['context']
   contextType: AvailableContext
   escapeLinkRegex?: RegExp
 }

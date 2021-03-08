@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useMemo } from 'react'
 import classnames from 'classnames'
 import { Link } from 'vtex.render-runtime'
 import { useCssHandles } from 'vtex.css-handles'
@@ -32,16 +32,30 @@ function ProductLink(props: Props) {
   } = props
   const productContext = useProduct()
   const handles = useCssHandles(CSS_HANDLES)
-  const resolvedLink = useInterpolatedLink(
-    href,
-    escapeLinkRegex ? new RegExp(escapeLinkRegex, 'g') : undefined,
-    [
+
+  const extraContexts = useMemo(() => {
+    return [
       {
         type: AvailableContext.product,
         context: productContext,
       },
     ]
+  }, [productContext])
+
+  const memoizedEscapeLinkRegex = useMemo(() => {
+    if (!escapeLinkRegex) {
+      return undefined
+    }
+
+    return new RegExp(escapeLinkRegex, 'g')
+  }, [escapeLinkRegex])
+
+  const resolvedLink = useInterpolatedLink(
+    href,
+    memoizedEscapeLinkRegex,
+    extraContexts
   )
+
   const modalDispatch = useModalDispatch()
 
   const {

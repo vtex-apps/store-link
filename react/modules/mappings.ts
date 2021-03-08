@@ -1,4 +1,5 @@
 import { searchSlugify } from '@vtex/slugify'
+import type { ProductTypes } from 'vtex.product-context'
 
 import { PRODUCT_VARIABLES, ProductVariable } from '../typings/types'
 
@@ -38,8 +39,19 @@ function mapSpecifications(specificationGroups: SpecificationGroup[]) {
   return mappedSpecifications
 }
 
-export function mapProductValues(context: Record<string, any> = {}) {
-  const { product = {}, selectedItem = {} } = context
+export function mapProductValues(
+  context: Partial<ProductTypes.ProductContextState> | undefined
+) {
+  const { product, selectedItem } = context ?? {}
+
+  if (!product) {
+    return {}
+  }
+
+  if (!selectedItem) {
+    return {}
+  }
+
   const categories = mapCategories(product.categories)
   const specifications = mapSpecifications(product.specificationGroups)
   const variables: Record<Partial<ProductVariable>, string | number> = {
@@ -69,17 +81,23 @@ export function mapProductValues(context: Record<string, any> = {}) {
   return output
 }
 
+function mapQueryStringValues(context?: Record<string, any>) {
+  return context ?? {}
+}
+
 export enum AvailableContext {
   product = 'product',
   queryString = 'queryString',
 }
 
-export function getMappingFn(contextType: AvailableContext) {
+export function getMappingFn(
+  contextType: AvailableContext
+): typeof mapProductValues | typeof mapQueryStringValues {
   switch (contextType) {
     case AvailableContext.product:
       return mapProductValues
     case AvailableContext.queryString:
-      return (context: Record<string, string> = {}) => context
+      return mapQueryStringValues
     default:
       return () => ({})
   }

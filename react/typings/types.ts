@@ -1,3 +1,7 @@
+import type { ProductTypes } from 'vtex.product-context'
+
+import { AvailableContext } from '../modules/mappings'
+
 // https://stackoverflow.com/questions/46176165/ways-to-get-string-literal-type-of-array-values-without-enum-overhead
 const inferType = <T extends string>(...args: T[]) => args
 
@@ -27,3 +31,12 @@ export const PRODUCT_VARIABLES: ProductVariable[] = [
   'brand',
   'brandId',
 ]
+
+export interface Context {
+  type: AvailableContext
+  namespace?: string
+  context:
+    | Partial<ProductTypes.ProductContextState>
+    | Record<string, any>
+    | undefined
+}
