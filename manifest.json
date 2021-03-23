@@ -13,7 +13,6 @@
   "dependencies": {
     "vtex.css-handles": "0.x",
     "vtex.product-context": "0.x",
-    "vtex.modal-layout": "0.x",
     "vtex.native-types": "0.x"
   },
   "registries": [
