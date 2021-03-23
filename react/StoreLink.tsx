@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import classnames from 'classnames'
 import { Link } from 'vtex.render-runtime'
 import { defineMessages, useIntl } from 'react-intl'
@@ -76,13 +76,8 @@ function StoreLink(props: Props) {
   const classes = useButtonClasses({ variant, size })
   const resolvedLink = useInterpolatedLink(href)
 
-  const [shouldReplaceUrl, setShouldReplaceUrl] = useState(
-    Boolean(modalDispatch)
-  )
-
-  useEffect(() => {
-    setShouldReplaceUrl(Boolean(modalDispatch))
-  }, [modalDispatch])
+  const hasModalContext = modalDispatch.toString() !== 'function () {}'
+  const shouldReplaceUrl = hasModalContext
 
   const rootClasses = classnames(handles.link, {
     [`${handles.buttonLink} ${classes.container}`]: displayMode === 'button',

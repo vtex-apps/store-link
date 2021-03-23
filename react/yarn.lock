@@ -5360,9 +5360,13 @@ verror@1.10.0:
   version "0.9.7"
   resolved "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.product-context@0.9.7/public/@types/vtex.product-context#4024c589f1ba318e92219a88bf18b4e3774dc85c"
 
-"vtex.render-runtime@http://vtex.vtexassets.com/_v/public/typings/v1/vtex.render-runtime@8.126.11/public/@types/vtex.render-runtime":
-  version "8.126.11"
-  resolved "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.render-runtime@8.126.11/public/@types/vtex.render-runtime#aceb734766093b56954ec19a074574b4c2c95242"
+"vtex.render-runtime@http://vtex.vtexassets.com/_v/public/typings/v1/vtex.render-runtime@8.128.2/public/@types/vtex.render-runtime":
+  version "8.128.2"
+  resolved "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.render-runtime@8.128.2/public/@types/vtex.render-runtime#67f5975f7edd73c9afa7bee57734540c0ead5428"
+
+"vtex.store-link@http://vtex.vtexassets.com/_v/public/typings/v1/vtex.store-link@0.7.5/public/@types/vtex.store-link":
+  version "0.7.5"
+  resolved "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.store-link@0.7.5/public/@types/vtex.store-link#d4e4f98ac6fcac948deb3283b6c3f915fae26c1a"
 
 w3c-hr-time@^1.0.1:
   version "1.0.2"

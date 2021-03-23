@@ -1,6 +1,5 @@
 import { useRuntime } from 'vtex.render-runtime'
 import { useEffect, useState } from 'react'
-import type { RenderContext } from 'vtex.render-runtime'
 
 import interpolateLink from './interpolateLink'
 import { AvailableContext } from './mappings'
@@ -14,7 +13,7 @@ export const useInterpolatedLink = (
   const [resolvedLink, setResolvedLink] = useState('#')
   const {
     route: { queryString },
-  } = useRuntime() as RenderContext.RenderContext
+  } = useRuntime()
 
   useEffect(() => {
     if (!href) {
