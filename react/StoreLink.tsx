@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import classnames from 'classnames'
 import { Link } from 'vtex.render-runtime'
 import { defineMessages, useIntl } from 'react-intl'
 import { useCssHandles } from 'vtex.css-handles'
-import { ModalContext } from 'vtex.modal-layout'
 import { formatIOMessage } from 'vtex.native-types'
 
 import hasChildren from './modules/hasChildren'
@@ -53,7 +52,6 @@ export const defaultButtonProps: ButtonProps = {
   size: 'regular',
 }
 
-const { useModalDispatch } = ModalContext
 const CSS_HANDLES = ['link', 'label', 'childrenContainer', 'buttonLink']
 
 function StoreLink(props: Props) {
@@ -72,17 +70,11 @@ function StoreLink(props: Props) {
   }
   const intl = useIntl()
   const handles = useCssHandles(CSS_HANDLES)
-  const modalDispatch = useModalDispatch()
-  const classes = useButtonClasses({ variant, size })
+  const classes = useButtonClasses({
+    variant,
+    size,
+  })
   const resolvedLink = useInterpolatedLink(href)
-
-  const [shouldReplaceUrl, setShouldReplaceUrl] = useState(
-    Boolean(modalDispatch)
-  )
-
-  useEffect(() => {
-    setShouldReplaceUrl(Boolean(modalDispatch))
-  }, [modalDispatch])
 
   const rootClasses = classnames(handles.link, {
     [`${handles.buttonLink} ${classes.container}`]: displayMode === 'button',
@@ -94,14 +86,16 @@ function StoreLink(props: Props) {
 
   const scrollOptions = scrollTo ? { baseElementId: scrollTo } : undefined
 
-  const localizedLabel = formatIOMessage({ id: label, intl })
+  const localizedLabel = formatIOMessage({
+    id: label,
+    intl,
+  })
 
   return (
     <Link
       to={resolvedLink}
       target={target}
       className={rootClasses}
-      replace={shouldReplaceUrl}
       scrollOptions={scrollOptions}
     >
       {label && <span className={labelClasses}>{localizedLabel}</span>}
