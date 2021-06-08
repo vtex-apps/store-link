@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [0.7.7] - 2021-06-08
+### Added
+- `rel` prop for better SEO
+
 ## [0.7.6] - 2021-03-25
 ### Fixed
 - Logic of history replace.

@@ -22,6 +22,11 @@
           "title": "admin/editor.link.target.title",
           "type": "string",
           "description": "admin/editor.link.target.description"
+        },
+        "rel": {
+          "title": "admin/editor.link.rel.attribute.title",
+          "type": "string",
+          "description": "admin/editor.link.rel.attribute.description"
         }
       }
     },

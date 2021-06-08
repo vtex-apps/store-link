@@ -4,5 +4,7 @@
   "admin/editor.link.href.description": "El Link real, p. \"https://www.google.com\", \"/about-us \", etc.",
   "admin/editor.product-link.title": "Link de producto",
   "admin/editor.link.target.title": "Donde abrir el link",
-  "admin/editor.link.target.description": "You can check the options available at: https://developer.mozilla.org/docs/Web/HTML/Element/a"
+  "admin/editor.link.target.description": "You can check the options available at: https://developer.mozilla.org/docs/Web/HTML/Element/a",
+  "admin/editor.link.rel.attribute.title": "\"rel\" attribute",
+  "admin/editor.link.rel.attribute.description": "You can check the options available at: https://www.w3schools.com/tags/att_a_rel.asp"
 }
