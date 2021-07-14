@@ -35,7 +35,7 @@ interface AllProps {
   escapeLinkRegex?: string
   children: React.ReactNode
   displayMode?: DisplayMode
-  buttonProps?: Partial<ButtonProps>,
+  buttonProps?: Partial<ButtonProps>
   rel?: string
 }
 
@@ -64,7 +64,7 @@ function StoreLink(props: Props) {
     buttonProps = defaultButtonProps,
     scrollTo,
     displayMode = 'anchor',
-    rel
+    rel,
   } = props
   const { variant, size } = {
     ...defaultButtonProps,
@@ -99,7 +99,7 @@ function StoreLink(props: Props) {
       target={target}
       className={rootClasses}
       scrollOptions={scrollOptions}
-      {...(rel ? {rel: `${rel}`} : {})}
+      rel={rel}
     >
       {label && <span className={labelClasses}>{localizedLabel}</span>}
       {hasChildren(children) && (

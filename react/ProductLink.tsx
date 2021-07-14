@@ -26,7 +26,7 @@ function ProductLink(props: Props) {
     target,
     displayMode = 'anchor',
     buttonProps = defaultButtonProps,
-    rel
+    rel,
   } = props
   const productContext = useProduct()
   const handles = useCssHandles(CSS_HANDLES)
@@ -69,7 +69,7 @@ function ProductLink(props: Props) {
   })
 
   return (
-    <Link target={target} to={resolvedLink} className={rootClasses} {...(rel ? {rel: `${rel}`} : {})}>
+    <Link target={target} to={resolvedLink} className={rootClasses} rel={rel}>
       {label && <span className={labelClasses}>{label}</span>}
       {hasChildren(children) && displayMode === 'anchor' && (
         <div className={handles.childrenContainer}>{children}</div>
