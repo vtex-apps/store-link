@@ -6,5 +6,5 @@
   "admin/editor.link.target.title": "Donde abrir el link",
   "admin/editor.link.target.description": "Puedes consultar las opciones disponibles aquí: https://developer.mozilla.org/docs/Web/HTML/Element/a",
   "admin/editor.link.rel.attribute.title": "\"rel\" atributo",
-  "admin/editor.link.rel.attribute.description": "Puedes consultar las opciones disponibles aquí: https://www.w3schools.com/tags/att_a_rel.asp"
+  "admin/editor.link.rel.attribute.description": "Puedes consultar las opciones disponibles aquí: https://developer.mozilla.org/en-US/docs/Web/HTML/Link_types"
 }
