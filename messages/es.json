@@ -1,10 +1,10 @@
 {
-  "admin/editor.link.label.title": "Link text",
-  "admin/editor.link.label.description": "Any text e.g. \"Categories\", \"About us\", etc.",
-  "admin/editor.link.href.description": "The actual link e.g. \"https://www.google.com\", \"/about-us\", etc",
-  "admin/editor.product-link.title": "Product Link",
-  "admin/editor.link.target.title": "Where to open the link",
-  "admin/editor.link.target.description": "You can check the options available at: https://developer.mozilla.org/docs/Web/HTML/Element/a",
-  "admin/editor.link.rel.attribute.title": "\"rel\" attribute",
-  "admin/editor.link.rel.attribute.description": "You can check the options available at: https://developer.mozilla.org/en-US/docs/Web/HTML/Link_types"
+  "admin/editor.link.label.title": "Texto del link",
+  "admin/editor.link.label.description": "Cualquier mensaje de texto p. Ej. \"Categorías \", \"Acerca de nosotros \", etc.",
+  "admin/editor.link.href.description": "El Link real, p. \"https://www.google.com\", \"/about-us \", etc.",
+  "admin/editor.product-link.title": "Link de producto",
+  "admin/editor.link.target.title": "Donde abrir el link",
+  "admin/editor.link.target.description": "Puede consultar las opciones disponibles en: https://developer.mozilla.org/docs/Web/HTML/Element/a",
+  "admin/editor.link.rel.attribute.title": "\"rel\" atributo",
+  "admin/editor.link.rel.attribute.description": "Puedes consultar las opciones disponibles aquí: https://developer.mozilla.org/en-US/docs/Web/HTML/Link_types"
 }
