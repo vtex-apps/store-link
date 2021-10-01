@@ -68,6 +68,7 @@ All blocks exported by `store-link` share the same props:
 | `buttonProps` | `object` | How the link button should be displayed. Use this prop only when the `displayMode` prop is set as `button`. | `{ variant: primary, size: regular }` |
 | `escapeLinkRegex`   | `string` | RegExp, with global match, used to remove special characters within product specifications. (E.g. if you want to use `/[%]/g` then `escapeLinkRegex` = `[%]` )         | `undefined`   |
 | `rel` | `string` | This prop specifies the relationship between the current document and the linked document (for better SEO). This prop works the same way as the `rel` attribute from `<a>`, the [HTML anchor element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a). Supported values can be found [here](https://developer.mozilla.org/en-US/docs/Web/HTML/Link_types) | `undefined` |
+| `title` | `string` | This prop adds the [title](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/title) global attribute to the link, which can be any `string` or identical to the link text passing the `"{label}"` value. | `undefined` |
 
 - `buttonProps` object:
 
