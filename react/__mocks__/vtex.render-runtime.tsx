@@ -10,6 +10,10 @@ export const useRuntime = () => {
   }
 }
 
-export function Link({ to, children, label = children }: any) {
-  return <a href={to}>{label}</a>
+export function Link({ to, children, label = children, title }: any) {
+  return (
+    <a href={to} title={title}>
+      {label}
+    </a>
+  )
 }
