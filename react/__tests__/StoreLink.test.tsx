@@ -1,12 +1,14 @@
 import React from 'react'
-import { screen, render } from '@vtex/test-tools/react'
+import { render } from '@vtex/test-tools/react'
 
 import StoreLink from '../StoreLink'
 
 test('StoreLink Component', () => {
-  render(<StoreLink href="/custom-link" label="View More" title="View More" />)
+  const { getByTitle } = render(
+    <StoreLink href="/custom-link" label="View More" title="View More" />
+  )
 
-  const link = screen.getByTitle('View More')
+  const link = getByTitle('View More')
 
   expect(link).toBeInTheDocument()
   expect(link).toHaveTextContent('View More')
