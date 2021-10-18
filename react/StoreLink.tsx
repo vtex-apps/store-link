@@ -104,7 +104,7 @@ function StoreLink(props: Props) {
       className={rootClasses}
       scrollOptions={scrollOptions}
       rel={rel}
-      {...{ title }}
+      title={title}
     >
       {label && <span className={labelClasses}>{localizedLabel}</span>}
       {hasChildren(children) && (

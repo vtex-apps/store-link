@@ -77,7 +77,7 @@ function ProductLink(props: Props) {
       to={resolvedLink}
       className={rootClasses}
       rel={rel}
-      {...{ title }}
+      title={title}
     >
       {label && <span className={labelClasses}>{label}</span>}
       {hasChildren(children) && displayMode === 'anchor' && (
