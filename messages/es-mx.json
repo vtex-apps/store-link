@@ -1,0 +1,10 @@
+{
+  "admin/editor.link.label.title": "Texto del link",
+  "admin/editor.link.label.description": "Cualquier texto. P. ej.: \"Categorías \", \"Quiénes somos\", etc.",
+  "admin/editor.link.href.description": "El link real. P. ej: \"https://www.google.com\", \"/quienes-somos\", etc.",
+  "admin/editor.product-link.title": "Link de producto",
+  "admin/editor.link.target.title": "Dónde abrir el link",
+  "admin/editor.link.target.description": "Puedes ver las opciones disponibles en: https://developer.mozilla.org/docs/Web/HTML/Element/a",
+  "admin/editor.link.rel.attribute.title": "Atributo \"rel\"",
+  "admin/editor.link.rel.attribute.description": "Puedes ver las opciones disponibles en: https://developer.mozilla.org/en-US/docs/Web/HTML/Link_types"
+}
