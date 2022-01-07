@@ -6,5 +6,7 @@
   "admin/editor.link.target.title": "Onde abrir o link",
   "admin/editor.link.target.description": "Você pode checar as opções disponíveis em: https://developer.mozilla.org/docs/Web/HTML/Element/a",
   "admin/editor.link.rel.attribute.title": "\"rel\" atributo",
-  "admin/editor.link.rel.attribute.description": "Você pode checar as opções disponíveis em: https://developer.mozilla.org/en-US/docs/Web/HTML/Link_types"
+  "admin/editor.link.rel.attribute.description": "Você pode checar as opções disponíveis em: https://developer.mozilla.org/en-US/docs/Web/HTML/Link_types",
+  "admin/editor.link.title.attribute.title": "\"title\" atributo",
+  "admin/editor.link.title.attribute.description": "Você pode checar mais informações em: https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/title"
 }

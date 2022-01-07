@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Added
+- `title` attribute for links.
+
 ## [0.8.1] - 2021-08-09
 ### Fixed
 - Outdated typings from VTEX apps.

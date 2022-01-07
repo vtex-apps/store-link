@@ -8,6 +8,7 @@ import { formatIOMessage } from 'vtex.native-types'
 import hasChildren from './modules/hasChildren'
 import useButtonClasses, { Variant } from './modules/useButtonClasses'
 import { useInterpolatedLink } from './modules/useInterpolatedLink'
+import { useTitleAttribute } from './modules/useTitleAttribute'
 
 type DisplayMode = 'anchor' | 'button'
 type Size = 'small' | 'regular' | 'large'
@@ -37,6 +38,7 @@ interface AllProps {
   displayMode?: DisplayMode
   buttonProps?: Partial<ButtonProps>
   rel?: string
+  title?: string
 }
 
 export type Props = RequireOnlyOne<AllProps, 'label' | 'children'>
@@ -93,6 +95,8 @@ function StoreLink(props: Props) {
     intl,
   })
 
+  const title = useTitleAttribute(props.title, label)
+
   return (
     <Link
       to={resolvedLink}
@@ -100,6 +104,7 @@ function StoreLink(props: Props) {
       className={rootClasses}
       scrollOptions={scrollOptions}
       rel={rel}
+      title={title}
     >
       {label && <span className={labelClasses}>{localizedLabel}</span>}
       {hasChildren(children) && (
