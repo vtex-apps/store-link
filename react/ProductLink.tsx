@@ -9,7 +9,7 @@ import hasChildren from './modules/hasChildren'
 import { AvailableContext } from './modules/mappings'
 import useButtonClasses from './modules/useButtonClasses'
 import { useInterpolatedLink } from './modules/useInterpolatedLink'
-import { useTitleAttr } from './modules/useTitleAttr'
+import { useTitleAttribute } from './modules/useTitleAttribute'
 
 const CSS_HANDLES = [
   'link',
@@ -69,7 +69,7 @@ function ProductLink(props: Props) {
     [classes.label]: displayMode === 'button',
   })
 
-  const title = useTitleAttr(props.title, label)
+  const title = useTitleAttribute(props.title, label)
 
   return (
     <Link

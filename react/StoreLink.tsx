@@ -8,7 +8,7 @@ import { formatIOMessage } from 'vtex.native-types'
 import hasChildren from './modules/hasChildren'
 import useButtonClasses, { Variant } from './modules/useButtonClasses'
 import { useInterpolatedLink } from './modules/useInterpolatedLink'
-import { useTitleAttr } from './modules/useTitleAttr'
+import { useTitleAttribute } from './modules/useTitleAttribute'
 
 type DisplayMode = 'anchor' | 'button'
 type Size = 'small' | 'regular' | 'large'
@@ -95,7 +95,7 @@ function StoreLink(props: Props) {
     intl,
   })
 
-  const title = useTitleAttr(props.title, label)
+  const title = useTitleAttribute(props.title, label)
 
   return (
     <Link
