@@ -1,0 +1,10 @@
+{
+  "admin/editor.link.label.title": "링크 텍스트",
+  "admin/editor.link.label.description": "모든 텍스트 예: \"카테고리\", \"소개\" 등.",
+  "admin/editor.link.href.description": "실제 링크 예: \"https://www.google.com\", \"소개\" 등",
+  "admin/editor.product-link.title": "제품 링크",
+  "admin/editor.link.target.title": "링크를 여는 위치",
+  "admin/editor.link.target.description": "사용 가능한 옵션은 https://developer.mozilla.org/docs/Web/HTML/Element/a에서 확인할 수 있습니다.",
+  "admin/editor.link.rel.attribute.title": "\"rel\" 속성",
+  "admin/editor.link.rel.attribute.description": "사용 가능한 옵션은 https://developer.mozilla.org/en-US/docs/Web/HTML/Link_types에서 확인할 수 있습니다."
+}
