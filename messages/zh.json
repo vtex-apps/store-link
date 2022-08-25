@@ -1,0 +1,10 @@
+{
+  "admin/editor.link.label.title": "連結文字",
+  "admin/editor.link.label.description": "任何文本，例如「分類」、「關於我們」等等。",
+  "admin/editor.link.href.description": "實際連結，例如「https://www.google.com」、 「/about-us」等等",
+  "admin/editor.product-link.title": "產品連結",
+  "admin/editor.link.target.title": "如何打開連結",
+  "admin/editor.link.target.description": "造訪 https://developer.mozilla.org/docs/Web/HTML/Element/a，可查看可用的選項",
+  "admin/editor.link.rel.attribute.title": "「rel」屬性",
+  "admin/editor.link.rel.attribute.description": "造訪 https://developer.mozilla.org/en-US/docs/Web/HTML/Link_types，可查看可用的選項"
+}
