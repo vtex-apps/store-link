@@ -39,6 +39,7 @@ function ProductLink(props: Props) {
     },
   ])
   const modalDispatch = useModalDispatch()
+  console.log("test")
 
   const {
     size = defaultButtonProps.size,
