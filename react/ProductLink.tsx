@@ -84,7 +84,7 @@ function ProductLink(props: Props) {
     >
       {label && <span className={labelClasses}>{label}</span>}
       {hasChildren(children) && displayMode === 'anchor' && (
-         <div className={handles.childrenContainer}>{children}</div>
+        <div className={handles.childrenContainer}>{children}</div>
       )}
     </Link>
   )
