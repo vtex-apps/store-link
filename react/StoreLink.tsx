@@ -58,7 +58,7 @@ const CSS_HANDLES = [
   'link',
   'label',
   'childrenContainer',
-  'buttonLink'
+  'buttonLink',
 ]
 function StoreLink(props: Props) {
   const {
@@ -104,21 +104,19 @@ function StoreLink(props: Props) {
   }
 
   return (
-    <div onClick={handlePrevent} className={handles.linkContainer}>
-      <Link
-        to={resolvedLink}
-        target={target}
-        className={rootClasses}
-        scrollOptions={scrollOptions}
-        rel={rel}
-        onClick={handlePrevent}
-      >
-        {label && <span className={labelClasses}>{localizedLabel}</span>}
-        {hasChildren(children) && (
-          <div className={handles.childrenContainer}>{children}</div>
-        )}
-      </Link>
-    </div>
+    <Link
+      to={resolvedLink}
+      target={target}
+      className={rootClasses}
+      scrollOptions={scrollOptions}
+      rel={rel}
+      onClick={handlePrevent}
+    >
+      {label && <span className={labelClasses}>{localizedLabel}</span>}
+      {hasChildren(children) && (
+        <div className={handles.childrenContainer}>{children}</div>
+      )}
+    </Link>
   )
 }
 
