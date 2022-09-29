@@ -53,12 +53,7 @@ export const defaultButtonProps: ButtonProps = {
   size: 'regular',
 }
 
-const CSS_HANDLES = [
-  'link',
-  'label',
-  'childrenContainer',
-  'buttonLink',
-]
+const CSS_HANDLES = ['link', 'label', 'childrenContainer', 'buttonLink']
 
 function StoreLink(props: Props) {
   const {
