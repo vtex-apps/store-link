@@ -28,5 +28,5 @@
     "vtex.render-runtime": "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.render-runtime@8.131.0/public/@types/vtex.render-runtime",
     "vtex.store-link": "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.store-link@0.7.6/public/@types/vtex.store-link"
   },
-  "version": "0.8.1"
+  "version": "0.8.2"
 }
