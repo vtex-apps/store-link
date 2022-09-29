@@ -53,7 +53,13 @@ export const defaultButtonProps: ButtonProps = {
   size: 'regular',
 }
 
-const CSS_HANDLES = ['linkContainer','link', 'label', 'childrenContainer', 'buttonLink']
+const CSS_HANDLES = [
+  'linkContainer',
+  'link',
+  'label',
+  'childrenContainer',
+  'buttonLink'
+]
 function StoreLink(props: Props) {
   const {
     label,
@@ -92,11 +98,10 @@ function StoreLink(props: Props) {
     intl,
   })
 
-  const handlePrevent = (e: React.MouseEvent) =>{
+  const handlePrevent = (e: React.MouseEvent) => {
     e.stopPropagation()
     e.nativeEvent.stopImmediatePropagation()
   }
-
 
   return (
     <div onClick={handlePrevent} className={handles.linkContainer}>
