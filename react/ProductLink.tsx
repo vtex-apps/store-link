@@ -80,14 +80,18 @@ function ProductLink(props: Props) {
       target={target}
       to={resolvedLink}
       className={rootClasses}
+    <Link
+      target={target}
+      to={resolvedLink}
+      className={rootClasses}
       rel={rel}
-      onClick={handlePrevent}>
-        {label && <span className={labelClasses}>{label}</span>}
-        {hasChildren(children) && displayMode === 'anchor' && (
-          <div className={handles.childrenContainer}>{children}</div>
-        )}
-      </Link>
-    </div>
+      onClick={handlePrevent}
+    >
+      {label && <span className={labelClasses}>{label}</span>}
+      {hasChildren(children) && displayMode === 'anchor' && (
+        <div className={handles.childrenContainer}>{children}</div>
+      )}
+    </Link>
   )
 }
 
