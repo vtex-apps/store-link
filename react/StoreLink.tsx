@@ -53,8 +53,7 @@ export const defaultButtonProps: ButtonProps = {
   size: 'regular',
 }
 
-const CSS_HANDLES = ['link', 'label', 'childrenContainer', 'buttonLink']
-
+const CSS_HANDLES = ['linkContainer','link', 'label', 'childrenContainer', 'buttonLink']
 function StoreLink(props: Props) {
   const {
     label,
@@ -93,19 +92,28 @@ function StoreLink(props: Props) {
     intl,
   })
 
+  const handlePrevent = (e: React.MouseEvent) =>{
+    e.stopPropagation()
+    e.nativeEvent.stopImmediatePropagation()
+  }
+
+
   return (
-    <Link
-      to={resolvedLink}
-      target={target}
-      className={rootClasses}
-      scrollOptions={scrollOptions}
-      rel={rel}
-    >
-      {label && <span className={labelClasses}>{localizedLabel}</span>}
-      {hasChildren(children) && (
-        <div className={handles.childrenContainer}>{children}</div>
-      )}
-    </Link>
+    <div onClick={handlePrevent} className={handles.linkContainer}>
+      <Link
+        to={resolvedLink}
+        target={target}
+        className={rootClasses}
+        scrollOptions={scrollOptions}
+        rel={rel}
+        onClick={handlePrevent}
+      >
+        {label && <span className={labelClasses}>{localizedLabel}</span>}
+        {hasChildren(children) && (
+          <div className={handles.childrenContainer}>{children}</div>
+        )}
+      </Link>
+    </div>
   )
 }
 

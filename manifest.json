@@ -1,7 +1,7 @@
 {
   "vendor": "vtex",
   "name": "store-link",
-  "version": "0.8.1",
+  "version": "0.8.2-hkignore.0",
   "title": "VTEX Store Link",
   "description": "A way to create links in the store",
   "builders": {
