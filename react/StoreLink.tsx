@@ -60,6 +60,7 @@ const CSS_HANDLES = [
   'childrenContainer',
   'buttonLink',
 ]
+
 function StoreLink(props: Props) {
   const {
     label,
