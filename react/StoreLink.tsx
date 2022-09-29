@@ -93,6 +93,11 @@ function StoreLink(props: Props) {
     intl,
   })
 
+  const handlePrevent = (e: React.MouseEvent) => {
+    e.stopPropagation()
+    e.nativeEvent.stopImmediatePropagation()
+  }
+
   return (
     <Link
       to={resolvedLink}
@@ -100,6 +105,7 @@ function StoreLink(props: Props) {
       className={rootClasses}
       scrollOptions={scrollOptions}
       rel={rel}
+      onClick={handlePrevent}
     >
       {label && <span className={labelClasses}>{localizedLabel}</span>}
       {hasChildren(children) && (

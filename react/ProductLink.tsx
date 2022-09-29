@@ -10,11 +10,7 @@ import { AvailableContext } from './modules/mappings'
 import useButtonClasses from './modules/useButtonClasses'
 import { useInterpolatedLink } from './modules/useInterpolatedLink'
 
-const CSS_HANDLES = [
-  'link',
-  'label',
-  'childrenContainer',
-  'buttonLink',
+const CSS_HANDLES = ['link', 'label', 'childrenContainer', 'buttonLink',
 ] as const
 
 function ProductLink(props: Props) {
@@ -68,8 +64,19 @@ function ProductLink(props: Props) {
     [classes.label]: displayMode === 'button',
   })
 
+  const handlePrevent = (e: React.MouseEvent) => {
+    e.stopPropagation()
+    e.nativeEvent.stopImmediatePropagation()
+  }
+
   return (
-    <Link target={target} to={resolvedLink} className={rootClasses} rel={rel}>
+    <Link
+      target={target}
+      to={resolvedLink}
+      className={rootClasses}
+      rel={rel}
+      onClick={handlePrevent}
+    >
       {label && <span className={labelClasses}>{label}</span>}
       {hasChildren(children) && displayMode === 'anchor' && (
         <div className={handles.childrenContainer}>{children}</div>
