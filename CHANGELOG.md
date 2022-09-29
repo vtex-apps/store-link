@@ -8,7 +8,6 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 ### Fixed
 - In plp the two components took the link from the product summary and not their own.
-By adding a container div with the appropriate onClick event in which the propagation stops, we were able to overcome the problem. A class with css handles has been associated with the container div so that the style can be managed from the theme.
 
 ## [0.8.1] - 2021-08-09
 ### Fixed
