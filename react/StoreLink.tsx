@@ -54,7 +54,6 @@ export const defaultButtonProps: ButtonProps = {
 }
 
 const CSS_HANDLES = [
-  'linkContainer',
   'link',
   'label',
   'childrenContainer',

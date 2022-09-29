@@ -11,7 +11,6 @@ import useButtonClasses from './modules/useButtonClasses'
 import { useInterpolatedLink } from './modules/useInterpolatedLink'
 
 const CSS_HANDLES = [
-  'linkContainer',
   'link',
   'label',
   'childrenContainer',
