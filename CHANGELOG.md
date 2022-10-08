@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Added
+- internationalization for label in product link
+
 ## [0.8.2] - 2022-09-29
 ### Fixed
 - In plp the two components took the link from the product summary and not their own.
