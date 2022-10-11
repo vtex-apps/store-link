@@ -3,6 +3,8 @@ import classnames from 'classnames'
 import { Link } from 'vtex.render-runtime'
 import { useCssHandles } from 'vtex.css-handles'
 import { useProduct } from 'vtex.product-context'
+import { formatIOMessage } from 'vtex.native-types'
+import { useIntl } from 'react-intl'
 
 import { Props, defaultButtonProps } from './StoreLink'
 import hasChildren from './modules/hasChildren'
@@ -10,7 +12,11 @@ import { AvailableContext } from './modules/mappings'
 import useButtonClasses from './modules/useButtonClasses'
 import { useInterpolatedLink } from './modules/useInterpolatedLink'
 
-const CSS_HANDLES = ['link', 'label', 'childrenContainer', 'buttonLink',
+const CSS_HANDLES = [
+  'link',
+  'label',
+  'childrenContainer',
+  'buttonLink',
 ] as const
 
 function ProductLink(props: Props) {
@@ -24,6 +30,8 @@ function ProductLink(props: Props) {
     buttonProps = defaultButtonProps,
     rel,
   } = props
+
+  const intl = useIntl()
   const productContext = useProduct()
   const handles = useCssHandles(CSS_HANDLES)
 
@@ -49,6 +57,11 @@ function ProductLink(props: Props) {
     memoizedEscapeLinkRegex,
     extraContexts
   )
+
+  const localizedLabel = formatIOMessage({
+    id: label,
+    intl,
+  })
 
   const {
     size = defaultButtonProps.size,
@@ -77,7 +90,7 @@ function ProductLink(props: Props) {
       rel={rel}
       onClick={handlePrevent}
     >
-      {label && <span className={labelClasses}>{label}</span>}
+      {label && <span className={labelClasses}>{localizedLabel}</span>}
       {hasChildren(children) && displayMode === 'anchor' && (
         <div className={handles.childrenContainer}>{children}</div>
       )}
