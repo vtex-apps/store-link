@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 ### Fixed
-- Rolled back link propagation
+- Rolled back link propagation from 0.8.2 (#52)
 
 ## [0.9.1] - 2022-11-03
 ### Fixed
