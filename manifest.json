@@ -1,7 +1,7 @@
 {
   "vendor": "vtex",
   "name": "store-link",
-  "version": "0.9.1",
+  "version": "0.9.2",
   "title": "VTEX Store Link",
   "description": "A way to create links in the store",
   "builders": {
