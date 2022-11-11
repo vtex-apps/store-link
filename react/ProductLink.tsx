@@ -77,19 +77,8 @@ function ProductLink(props: Props) {
     [classes.label]: displayMode === 'button',
   })
 
-  const handlePrevent = (e: React.MouseEvent) => {
-    e.stopPropagation()
-    e.nativeEvent.stopImmediatePropagation()
-  }
-
   return (
-    <Link
-      target={target}
-      to={resolvedLink}
-      className={rootClasses}
-      rel={rel}
-      onClick={handlePrevent}
-    >
+    <Link target={target} to={resolvedLink} className={rootClasses} rel={rel}>
       {label && <span className={labelClasses}>{localizedLabel}</span>}
       {hasChildren(children) && displayMode === 'anchor' && (
         <div className={handles.childrenContainer}>{children}</div>
