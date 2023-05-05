@@ -92,7 +92,7 @@ When creating an URL link using the `href` prop, you can add custom query string
 
 Considering the `href` prop from the previous example, note that the URL link will be built correctly if the current page has the `returnUrl` query string. Otherwise, it will be built with an empty value.
 
-Depending on the context the `link.product` block is used, you can use *product variables* to structure different URL paths for the `href` prop. For example, you could create a link to a specific product department (`/{department}`).
+Depending on the context that the `link.product` block uses, you can use product variables to structure different URL paths for the `href` prop. For example, you could create a link to a specific product department (`/{department}`).
 
 | Product variable | Description                                    |
 | ---------------- | ---------------------------------------------- |
