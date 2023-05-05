@@ -44,7 +44,7 @@ The Store Link app provides blocks for displaying links in other theme blocks, s
   },
 }
 ```
-> ⚠️ Note that you must place the `link.product` block inside a block that provides a product context (e.g., [`ProductSummary`](https://vtex.io/docs/components/product/vtex.product-summary)). From the previous example, note that a `{slug}` placeholder is being passed onto the `href` prop. When rendered, this placeholder is overwritten by the value accrued from the closest product context, generating a link like `/everyday-necessaire/p`.
+> ⚠️ Note that you must place the `link.product` block inside a block that provides a product context (e.g., [`ProductSummary`](https://developers.vtex.com/docs/apps/vtex.product-summary)). From the previous example, note that a `{slug}` placeholder is being passed onto the `href` prop. When rendered, this placeholder is overwritten by the value accrued from the closest product context, generating a link like `/everyday-necessaire/p`.
 
 ## Blocks
 
