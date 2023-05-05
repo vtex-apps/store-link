@@ -22,7 +22,7 @@ The Store Link app provides blocks for displaying links in other theme blocks, s
   }
 ```
 
-2. Based on the exported list, choose the desired block and declare it in the block hosting the link. See below an example of a `link.product` being used in the [`product-summary`](https://vtex.io/docs/components/product/vtex.product-summary) block:
+2. Choose one of the [blocks](#blocks) exported by the `store-link` app and declare it in the block where the link will be displayed. See below an example of a `link.product` being used in the [`product-summary`](https://developers.vtex.com/docs/apps/vtex.product-summary) block to display the "More details" link.
 
 ```jsonc
 {
