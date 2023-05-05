@@ -50,8 +50,8 @@ The Store Link app provides blocks for displaying links in other theme blocks, s
 
 | Block          | Description                                      |
 | -------------- | ------------------------------------------------ |
-| `link.product` | A link containing the product context.           |
-| `link`         | A normal link that does not contain any context. |
+| `link.product` | A link that uses the product context, such as a product slug or department. For example, `/{slug}/p`.       |
+| `link`         | A regular link that does not require the product context to function. For example, `/home`. |
 
 ## Props
 
