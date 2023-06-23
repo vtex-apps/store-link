@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Fixed 
+- Fixed click event propagation for store-link.
 ## [0.9.3] - 2023-05-05
 ### Fixed
 - Fixes of i18n on readme.md according to task LOC-10597.
