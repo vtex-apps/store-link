@@ -92,10 +92,6 @@ function StoreLink(props: Props) {
     id: label,
     intl,
   })
-  const handleClick = (e: React.MouseEvent) => {
-      e.preventDefault()
-      e.stopPropagation()
-  }
 
   return (
     <Link
@@ -104,7 +100,6 @@ function StoreLink(props: Props) {
       className={rootClasses}
       scrollOptions={scrollOptions}
       rel={rel}
-      onClick={handleClick}
     >
       {label && <span className={labelClasses}>{localizedLabel}</span>}
       {hasChildren(children) && (
