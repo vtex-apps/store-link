@@ -1,0 +1,10 @@
+{
+  "admin/editor.link.label.title": "เชื่อมโยงข้อความ",
+  "admin/editor.link.label.description": "ข้อความใด ๆ เช่น \"หมวดหมู่\", \"เกี่ยวกับเรา” ฯลฯ",
+  "admin/editor.link.href.description": "ลิงก์จริง เช่น \"https://www.google.com\", \"/about-us” ฯลฯ",
+  "admin/editor.product-link.title": "ลิงก์ผลิตภัณฑ์",
+  "admin/editor.link.target.title": "จะเปิดลิงก์จากที่ใด",
+  "admin/editor.link.target.description": "คุณสามารถตรวจสอบตัวเลือกที่มีได้ที่: https://developer.mozilla.org/docs/Web/HTML/Element/a",
+  "admin/editor.link.rel.attribute.title": "แอตทริบิวต์ \"rel\"",
+  "admin/editor.link.rel.attribute.description": "คุณสามารถตรวจสอบตัวเลือกที่มีได้ที่: https://developer.mozilla.org/en-US/docs/Web/HTML/Link_types"
+}

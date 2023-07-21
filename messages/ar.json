@@ -1,0 +1,10 @@
+{
+  "admin/editor.link.label.title": "نص الرابط",
+  "admin/editor.link.label.description": "أي نص مثل \"الفئات\"، \"حولنا\"، إلخ.",
+  "admin/editor.link.href.description": "الرابط الحالي مثل «https://www.google.com» و «/حولنا »وما إلى ذلك",
+  "admin/editor.product-link.title": "رابط المنتج",
+  "admin/editor.link.target.title": "أين يمكن فتح الرابط",
+  "admin/editor.link.target.description": "يمكنك التحقق من الخيارات المتاحة على: https://developer.mozilla.org/docs/Web/HTML/Element/a",
+  "admin/editor.link.rel.attribute.title": "سمة \"rel\"",
+  "admin/editor.link.rel.attribute.description": "يمكنك التحقق من الخيارات المتاحة على: https://developer.mozilla.org/en-US/docs/Web/HTML/Link_types"
+}

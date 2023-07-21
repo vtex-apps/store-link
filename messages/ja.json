@@ -1,0 +1,10 @@
+{
+  "admin/editor.link.label.title": "リンクテキスト",
+  "admin/editor.link.label.description": "例えば「カテゴリ」や「当社について」などのあらゆるテキストです。",
+  "admin/editor.link.href.description": "例えば「https://www.google.com」や「/about-us」などの実在するリンクです。",
+  "admin/editor.product-link.title": "製品リンク",
+  "admin/editor.link.target.title": "リンクを開く場所",
+  "admin/editor.link.target.description": "利用できるオプションを以下で確認できます: https://developer.mozilla.org/docs/Web/HTML/Element/a",
+  "admin/editor.link.rel.attribute.title": "「rel」属性",
+  "admin/editor.link.rel.attribute.description": "利用できるオプションを以下で確認できます: https://developer.mozilla.org/en-US/docs/Web/HTML/Link_types"
+}
