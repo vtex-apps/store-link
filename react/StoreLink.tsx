@@ -100,6 +100,7 @@ function StoreLink(props: Props) {
       className={rootClasses}
       scrollOptions={scrollOptions}
       rel={rel}
+      aria-label={label}
     >
       {label && <span className={labelClasses}>{localizedLabel}</span>}
       {hasChildren(children) && (
